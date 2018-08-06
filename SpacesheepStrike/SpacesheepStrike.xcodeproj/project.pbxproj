@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6A314ABF2118758D008B6A97 /* CoreMotionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A314ABE2118758D008B6A97 /* CoreMotionService.swift */; };
+		6A714CC32118929A00546FAA /* AnimationConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A714CC22118929A00546FAA /* AnimationConstants.swift */; };
+		6A8FD6B521186EA100F7260B /* GameConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A8FD6B421186EA100F7260B /* GameConstants.swift */; };
 		6A9656652114CAE800DEB22C /* Spaceship.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A9656642114CAE800DEB22C /* Spaceship.swift */; };
 		6A9D4A4E2114801200DCF691 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A9D4A4D2114801200DCF691 /* AppDelegate.swift */; };
 		6A9D4A502114801300DCF691 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 6A9D4A4F2114801300DCF691 /* art.scnassets */; };
@@ -18,6 +21,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6A314ABE2118758D008B6A97 /* CoreMotionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreMotionService.swift; sourceTree = "<group>"; };
+		6A714CC22118929A00546FAA /* AnimationConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationConstants.swift; sourceTree = "<group>"; };
+		6A8FD6B421186EA100F7260B /* GameConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameConstants.swift; sourceTree = "<group>"; };
 		6A9656642114CAE800DEB22C /* Spaceship.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spaceship.swift; sourceTree = "<group>"; };
 		6A9D4A4A2114801200DCF691 /* SpacesheepStrike.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpacesheepStrike.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A9D4A4D2114801200DCF691 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -41,6 +47,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6A314ABD2118756D008B6A97 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				6A314ABE2118758D008B6A97 /* CoreMotionService.swift */,
+			);
+			name = Services;
+			path = "New Group";
+			sourceTree = "<group>";
+		};
+		6A8FD6B321186E8B00F7260B /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				6A8FD6B421186EA100F7260B /* GameConstants.swift */,
+				6A714CC22118929A00546FAA /* AnimationConstants.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		6A8FD6B621186ECE00F7260B /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				6A8FD6B321186E8B00F7260B /* Constants */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		6A9D4A412114801200DCF691 = {
 			isa = PBXGroup;
 			children = (
@@ -60,6 +92,8 @@
 		6A9D4A4C2114801200DCF691 /* SpacesheepStrike */ = {
 			isa = PBXGroup;
 			children = (
+				6A314ABD2118756D008B6A97 /* Services */,
+				6A8FD6B621186ECE00F7260B /* Utils */,
 				6A9D4A66211480C500DCF691 /* Controllers */,
 				6A9D4A65211480BD00DCF691 /* Scenes */,
 				6A9D4A64211480B500DCF691 /* Component */,
@@ -178,8 +212,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6A714CC32118929A00546FAA /* AnimationConstants.swift in Sources */,
 				6A9656652114CAE800DEB22C /* Spaceship.swift in Sources */,
+				6A8FD6B521186EA100F7260B /* GameConstants.swift in Sources */,
 				6A9D4A522114801300DCF691 /* GameViewController.swift in Sources */,
+				6A314ABF2118758D008B6A97 /* CoreMotionService.swift in Sources */,
 				6A9D4A4E2114801200DCF691 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
