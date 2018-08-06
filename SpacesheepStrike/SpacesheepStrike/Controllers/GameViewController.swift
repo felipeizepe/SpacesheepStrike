@@ -13,13 +13,17 @@ import SpriteKit
 
 class GameViewController: UIViewController {
 	
+	var ship: Spaceship!
+	
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
 		// create a new scene
 		let scene = SCNScene(named: "GameScene.scn")!
 		let camera = scene.rootNode.childNode(withName: "camera", recursively: true)!
-		
+		ship = scene.rootNode.childNode(withName: "ShipNode", recursively: true) as! Spaceship
+		ship.setupSpaceship()
 		// retrieve the SCNView
 		let scnView = self.view as! SCNView
 		
