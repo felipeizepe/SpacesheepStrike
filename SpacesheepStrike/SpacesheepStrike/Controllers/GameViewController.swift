@@ -30,14 +30,17 @@ class GameViewController: UIViewController {
 		// create a new scene
 		let scene = SCNScene(named: "GameScene.scn")!
 		
+		let scenarioService = ScenarioService.init()
+		scenarioService.generateScenario(scene: scene, row: 20, column: 20)
+		
 		// retrieve the ship node
 		ship = scene.rootNode.childNode(withName: "ship", recursively: true)!
-		
+
 		// set the scene to the view
 		scnView.scene = scene
 		
 		// allows the user to manipulate the camera
-		scnView.allowsCameraControl = false
+		scnView.allowsCameraControl = true
 		
 		// show statistics such as fps and timing information
 		scnView.showsStatistics = true
