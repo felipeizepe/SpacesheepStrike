@@ -1,18 +1,17 @@
 //
 //  GameViewController.swift
-//  SpacesheepStrike
+//  ShipSensorMovementStream
 //
-//  Created by Felipe Izepe on 03/08/18.
-//  Copyright © 2018 Felipe Izepe. All rights reserved.
+//  Created by Richard Vaz da Silva Netto on 31/07/18.
+//  Copyright © 2018 Richard Vaz da Silva Netto. All rights reserved.
 //
 
 import UIKit
-import QuartzCore
-import SceneKit
-import SpriteKit
 import CoreMotion
+import SceneKit
 
-class GameViewController: UIViewController {
+class ShipViewController: UIViewController, SCNSceneRendererDelegate {
+
 	@IBOutlet weak var scnView: SCNView!
 	@IBOutlet weak var dataLabel: UILabel!
 	@IBOutlet weak var sessionOwnerLabel: UILabel!
@@ -24,27 +23,28 @@ class GameViewController: UIViewController {
 	var pitch: Float = 0
 	var yaw: Float = 0
 	
-	override func viewDidLoad() {
-		super.viewDidLoad()
+    override func viewDidLoad() {
+        super.viewDidLoad()
+		setupServices()
+        
+        // create a new scene
+        let scene = SCNScene(named: "art.scnassets/GameScene.scn")!
 		
-		// create a new scene
-		let scene = SCNScene(named: "GameScene.scn")!
-		
-		// retrieve the ship node
+        // retrieve the ship node
 		ship = scene.rootNode.childNode(withName: "ship", recursively: true)!
 		
-		// set the scene to the view
-		scnView.scene = scene
-		
-		// allows the user to manipulate the camera
-		scnView.allowsCameraControl = false
-		
-		// show statistics such as fps and timing information
-		scnView.showsStatistics = true
-		
-		// configure the view
-		scnView.backgroundColor = UIColor.white
-	}
+        // set the scene to the view
+        scnView.scene = scene
+        
+        // allows the user to manipulate the camera
+        scnView.allowsCameraControl = false
+        
+        // show statistics such as fps and timing information
+        scnView.showsStatistics = true
+        
+        // configure the view
+        scnView.backgroundColor = UIColor.white
+    }
 	
 	func setupServices() {
 		self.coreMotionServices.delegate = self
@@ -52,37 +52,45 @@ class GameViewController: UIViewController {
 		
 	}
 	
-	override var shouldAutorotate: Bool {
-		return false
-	}
+    override var shouldAutorotate: Bool {
+        return true
+    }
+    
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
+    
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        if UIDevice.current.userInterfaceIdiom == .phone {
+            return .allButUpsideDown
+        } else {
+            return .all
+        }
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Release any cached data, images, etc that aren't in use.
+    }
 	
-	override var prefersStatusBarHidden: Bool {
-		return true
+	func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
+		
 	}
-	
-	override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-		if UIDevice.current.userInterfaceIdiom == .phone {
-			return .allButUpsideDown
-		} else {
-			return .all
-		}
-	}
-	
 }
 
-extension GameViewController: CoreMotionServiceDelegate {
+extension ShipViewController: CoreMotionServiceDelegate {
 	// Send thru the MultipeerConectivityServices the motion to the other devices
 	func sendMotionData(deviceMotion: CMDeviceMotion) {
 		// TODO: Delete this piece of code
 		let attitude = deviceMotion.attitude
 		self.dataLabel.text = "CurrentData   -   pitch: \(attitude.pitch.format(f: "0.2"))" +
-			"   roll: \(attitude.roll.format(f: "0.2"))" +
+		"   roll: \(attitude.roll.format(f: "0.2"))" +
 		"   yaw: \(attitude.yaw.format(f: "0.2"))"
 		self.multipeerConnectivityService.send(motion: attitude)
 	}
 }
 
-extension GameViewController: MultipeerConnectivityServicesDelegate {
+extension ShipViewController: MultipeerConnectivityServicesDelegate {
 	func showNode() {
 		print("Show Node Function working")
 	}
@@ -108,8 +116,19 @@ extension GameViewController: MultipeerConnectivityServicesDelegate {
 	
 }
 
-extension Double {
-	func format(f: String) -> String {
-		return String(format: "%\(f)f", self)
-	}
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
