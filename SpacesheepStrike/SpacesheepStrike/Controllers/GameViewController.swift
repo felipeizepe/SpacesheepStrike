@@ -105,7 +105,7 @@ extension GameViewController: SCNSceneRendererDelegate {
 		
 		//Send information to opponent
 		if let att = CoreMotionService.shared.attitude {
-			self.multipeerConnectivityService.send(motion: att)
+			//self.multipeerConnectivityService.send(motion: att)
 		}
 	}
 }
