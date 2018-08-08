@@ -89,9 +89,11 @@ class GameViewController: UIViewController {
 
 extension GameViewController: SCNSceneRendererDelegate {
 	func renderer(_ renderer: SCNSceneRenderer, didApplyAnimationsAtTime time: TimeInterval) {
-		if let deviceQuaternion = CoreMotionService.shared.deviceQuaternion {
-			let point = SCNVector3Make(Float(deviceQuaternion.y), Float(deviceQuaternion.x), Float(deviceQuaternion.z))
-			ship.moveInRelation(toPoint: point, factor: Float(deviceQuaternion.w))
+		if var deviceQuaternion = CoreMotionService.shared.deviceQuaternion{
+			deviceQuaternion.x -= GameConstants.phoneInitialInclination
+			deviceQuaternion.restrict(restrictionValue: GameConstants.rotationMax)
+			let scnQuaterion = SCNQuaternion(-deviceQuaternion.x * 2.0, 0, deviceQuaternion.y * 2.0, deviceQuaternion.w)
+			ship.moveInRelation(toQuaternion: scnQuaterion)
 
 		}
 	}

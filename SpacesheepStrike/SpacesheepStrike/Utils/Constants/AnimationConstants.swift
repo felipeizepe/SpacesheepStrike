@@ -7,9 +7,11 @@
 //
 
 import Foundation
+import SceneKit
 
 struct AnimationConstants {
 	
-	static let rotationTime = 1.0
+	static let rotationTime = 1
+	static let rotationAxis = simd_quatf(angle: 0, axis: float3(1, 1, 0))
 	
 }

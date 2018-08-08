@@ -18,6 +18,7 @@
 		6A9D4A572114801500DCF691 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6A9D4A562114801500DCF691 /* Assets.xcassets */; };
 		6A9D4A5A2114801500DCF691 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A9D4A582114801500DCF691 /* LaunchScreen.storyboard */; };
 		6A9D4A622114808B00DCF691 /* GameScene.scn in Resources */ = {isa = PBXBuildFile; fileRef = 6A9D4A612114808B00DCF691 /* GameScene.scn */; };
+		6AB59E732119D2C900B0F4A9 /* QuaternionExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB59E722119D2C900B0F4A9 /* QuaternionExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		6A9D4A592114801500DCF691 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6A9D4A5B2114801500DCF691 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6A9D4A612114808B00DCF691 /* GameScene.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = GameScene.scn; sourceTree = "<group>"; };
+		6AB59E722119D2C900B0F4A9 /* QuaternionExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuaternionExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +70,7 @@
 		6A8FD6B621186ECE00F7260B /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				6AB59E712119D2A300B0F4A9 /* Extensions */,
 				6A8FD6B321186E8B00F7260B /* Constants */,
 			);
 			path = Utils;
@@ -137,6 +140,14 @@
 				6A9D4A512114801300DCF691 /* GameViewController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		6AB59E712119D2A300B0F4A9 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				6AB59E722119D2C900B0F4A9 /* QuaternionExtension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -218,6 +229,7 @@
 				6A9D4A522114801300DCF691 /* GameViewController.swift in Sources */,
 				6A314ABF2118758D008B6A97 /* CoreMotionService.swift in Sources */,
 				6A9D4A4E2114801200DCF691 /* AppDelegate.swift in Sources */,
+				6AB59E732119D2C900B0F4A9 /* QuaternionExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
