@@ -24,21 +24,16 @@ class Spaceship {
 	
 	//MARK: Auxiliary methods
 	
+	
+	/// Sets up the spaceship initial values
 	func setupSpaceship() {
 		self.bodyNode = node.childNode(withName: "ship", recursively: true)
 	}
 	
-	func moveInRelation(toPoint point: SCNVector3, factor: Float) {
-		let quet = simd_quatf(SCNQuaternion(-point.y, 0,point.x,factor))
-		bodyNode.simdOrientation = quet * AnimationConstants.rotationAxis 
-		
-		if let pbody = node.physicsBody {
-			let direction = SCNVector3Make( -point.x * GameConstants.speedFactor, point.y * GameConstants.speedFactor, 0.3 - 0.3 * (point.y - point.x))
-			pbody.velocity = direction
-		}
-		
-	}
 	
+	/// Moves the ship in relation to a SCNQuaternion representing the devices rotational position
+	///
+	/// - Parameter quet: Quaternion value of the devices rotation
 	func moveInRelation(toQuaternion quet: SCNQuaternion) {
 		let simq = simd_quatf(quet)
 		bodyNode.simdOrientation = simq * AnimationConstants.rotationAxis
@@ -52,6 +47,10 @@ class Spaceship {
 		
 	}
 	
+	
+	/// Creates a projectile to fire
+	///
+	/// - Returns: Projectile etity of the ship
 	func createProjectile() -> SCNNode? {
 		if let pbody = self.node.physicsBody {
 			if let bullet = SCNScene(named: "art.scnassets/bullet.scn")?.rootNode.childNode(withName: "bullet", recursively: true) {

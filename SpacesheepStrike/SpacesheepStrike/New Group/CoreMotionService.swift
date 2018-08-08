@@ -14,6 +14,7 @@ class CoreMotionService {
 	static let shared = CoreMotionService()
 	let motionManager = CMMotionManager()
 	var deviceQuaternion: CMQuaternion?
+	var attitude: CMAttitude?
 	
 	private init() {
 		if motionManager.isDeviceMotionAvailable {
@@ -21,6 +22,7 @@ class CoreMotionService {
 			motionManager.startDeviceMotionUpdates(using: .xArbitraryZVertical, to: OperationQueue(), withHandler: { (deviceMotion, error) in
 				guard let data = deviceMotion else { return }
 				self.deviceQuaternion = data.attitude.quaternion
+				self.attitude = data.attitude
 			})
 		}
 	}

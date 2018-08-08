@@ -17,6 +17,10 @@ extension simd_quatf {
 }
 
 extension CMQuaternion {
+	
+	/// Restricts the value of the dimensions based on a given value representing the modular max value
+	///
+	/// - Parameter value: value that represents the interval where the values should be
 	mutating func restrict(restrictionValue value: Double) {
 		
 		self.y = retrictedValue(value: self.y, max: value)
@@ -26,6 +30,13 @@ extension CMQuaternion {
 		
 	}
 	
+	
+	/// Restricts a value of a variable
+	///
+	/// - Parameters:
+	///   - value: value to be checked
+	///   - max: value of the interval where the result shoul be
+	/// - Returns: original value if alredy inside interval, max if greater and -max if lower
 	fileprivate func retrictedValue(value: Double, max: Double) -> Double {
 		let negative = (-1) * max
 		if value > max {

@@ -19,6 +19,10 @@
 		6A9D4A5A2114801500DCF691 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A9D4A582114801500DCF691 /* LaunchScreen.storyboard */; };
 		6A9D4A622114808B00DCF691 /* GameScene.scn in Resources */ = {isa = PBXBuildFile; fileRef = 6A9D4A612114808B00DCF691 /* GameScene.scn */; };
 		6AB59E732119D2C900B0F4A9 /* QuaternionExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB59E722119D2C900B0F4A9 /* QuaternionExtension.swift */; };
+		6AC0574E211B231A0043CE6E /* MultipeerConnectivityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AC0574C211B231A0043CE6E /* MultipeerConnectivityService.swift */; };
+		6AC0574F211B231A0043CE6E /* ScenarioService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AC0574D211B231A0043CE6E /* ScenarioService.swift */; };
+		6AC05751211B23270043CE6E /* ShipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AC05750211B23270043CE6E /* ShipViewController.swift */; };
+		6AC05753211B23990043CE6E /* DoubleExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AC05752211B23990043CE6E /* DoubleExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +40,10 @@
 		6A9D4A5B2114801500DCF691 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6A9D4A612114808B00DCF691 /* GameScene.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = GameScene.scn; sourceTree = "<group>"; };
 		6AB59E722119D2C900B0F4A9 /* QuaternionExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuaternionExtension.swift; sourceTree = "<group>"; };
+		6AC0574C211B231A0043CE6E /* MultipeerConnectivityService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MultipeerConnectivityService.swift; path = SpacesheepStrike/Services/MultipeerConnectivityService.swift; sourceTree = SOURCE_ROOT; };
+		6AC0574D211B231A0043CE6E /* ScenarioService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ScenarioService.swift; path = SpacesheepStrike/Services/ScenarioService.swift; sourceTree = SOURCE_ROOT; };
+		6AC05750211B23270043CE6E /* ShipViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShipViewController.swift; sourceTree = "<group>"; };
+		6AC05752211B23990043CE6E /* DoubleExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +60,8 @@
 		6A314ABD2118756D008B6A97 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				6AC0574C211B231A0043CE6E /* MultipeerConnectivityService.swift */,
+				6AC0574D211B231A0043CE6E /* ScenarioService.swift */,
 				6A314ABE2118758D008B6A97 /* CoreMotionService.swift */,
 			);
 			name = Services;
@@ -137,6 +147,7 @@
 		6A9D4A66211480C500DCF691 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				6AC05750211B23270043CE6E /* ShipViewController.swift */,
 				6A9D4A512114801300DCF691 /* GameViewController.swift */,
 			);
 			path = Controllers;
@@ -146,6 +157,7 @@
 			isa = PBXGroup;
 			children = (
 				6AB59E722119D2C900B0F4A9 /* QuaternionExtension.swift */,
+				6AC05752211B23990043CE6E /* DoubleExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -224,12 +236,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				6A714CC32118929A00546FAA /* AnimationConstants.swift in Sources */,
+				6AC0574F211B231A0043CE6E /* ScenarioService.swift in Sources */,
 				6A9656652114CAE800DEB22C /* Spaceship.swift in Sources */,
 				6A8FD6B521186EA100F7260B /* GameConstants.swift in Sources */,
 				6A9D4A522114801300DCF691 /* GameViewController.swift in Sources */,
+				6AC0574E211B231A0043CE6E /* MultipeerConnectivityService.swift in Sources */,
+				6AC05751211B23270043CE6E /* ShipViewController.swift in Sources */,
 				6A314ABF2118758D008B6A97 /* CoreMotionService.swift in Sources */,
 				6A9D4A4E2114801200DCF691 /* AppDelegate.swift in Sources */,
 				6AB59E732119D2C900B0F4A9 /* QuaternionExtension.swift in Sources */,
+				6AC05753211B23990043CE6E /* DoubleExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

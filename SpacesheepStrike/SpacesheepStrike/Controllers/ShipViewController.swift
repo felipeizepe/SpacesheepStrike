@@ -15,7 +15,6 @@ class ShipViewController: UIViewController, SCNSceneRendererDelegate {
 	@IBOutlet weak var scnView: SCNView!
 	@IBOutlet weak var dataLabel: UILabel!
 	@IBOutlet weak var sessionOwnerLabel: UILabel!
-	let coreMotionServices: CoreMotionService = CoreMotionService()
 	let multipeerConnectivityService: MultipeerConnectivityService = MultipeerConnectivityService()
 	var ship: SCNNode?
 	var sessionNode: SCNNode?
@@ -47,7 +46,6 @@ class ShipViewController: UIViewController, SCNSceneRendererDelegate {
     }
 	
 	func setupServices() {
-		self.coreMotionServices.delegate = self
 		self.multipeerConnectivityService.delegate = self
 		
 	}
@@ -75,18 +73,6 @@ class ShipViewController: UIViewController, SCNSceneRendererDelegate {
 	
 	func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
 		
-	}
-}
-
-extension ShipViewController: CoreMotionServiceDelegate {
-	// Send thru the MultipeerConectivityServices the motion to the other devices
-	func sendMotionData(deviceMotion: CMDeviceMotion) {
-		// TODO: Delete this piece of code
-		let attitude = deviceMotion.attitude
-		self.dataLabel.text = "CurrentData   -   pitch: \(attitude.pitch.format(f: "0.2"))" +
-		"   roll: \(attitude.roll.format(f: "0.2"))" +
-		"   yaw: \(attitude.yaw.format(f: "0.2"))"
-		self.multipeerConnectivityService.send(motion: attitude)
 	}
 }
 
