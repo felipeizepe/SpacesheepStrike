@@ -44,7 +44,7 @@ class GameViewController: UIViewController {
 		
 		// set the scene to the view
 		scnView.scene = scene
-
+		scene.physicsWorld.contactDelegate = self
 		scnView.delegate = self
 		scnView.isPlaying = true
 		scnView.pointOfView = camera
@@ -136,3 +136,51 @@ extension GameViewController: MultipeerConnectivityServicesDelegate {
 		}
 	}
 }
+
+//MARK: Contact delegate
+extension GameViewController: SCNPhysicsContactDelegate {
+	
+	func physicsWorld(_ world: SCNPhysicsWorld, didBegin contact: SCNPhysicsContact) {
+		let contactMask = contact.nodeA.physicsBody!.categoryBitMask | contact.nodeB.physicsBody!.categoryBitMask
+		
+		// first, sort out what kind of collision
+		if (contactMask == (CollisionConstants.bulletCategoryMask | CollisionConstants.enemyCategoryMask)) {
+			let bullet: BulletNode?
+			let enemy: SCNNode?
+			// next, sort out which body is the bullet and which is the ship
+			if (contact.nodeA.physicsBody?.categoryBitMask == CollisionConstants.bulletCategoryMask) {
+				bullet = contact.nodeA.parent as? BulletNode
+				enemy = contact.nodeB
+			} else {
+				bullet = contact.nodeB.parent as? BulletNode
+				enemy = contact.nodeA
+			}
+			//Removes bullet
+			removeNode(remove: bullet)
+			
+			//TODO: send damage message to enemy player
+			
+		} else if (contactMask == (CollisionConstants.bulletCategoryMask | CollisionConstants.shipCategoryMask)) {
+			let bullet: BulletNode?
+			// next, sort out which body is the missile and which is the rocket
+			// and do something about it
+			if (contact.nodeA.physicsBody?.categoryBitMask == CollisionConstants.bulletCategoryMask) {
+				bullet = contact.nodeA.parent as? BulletNode
+			} else {
+				bullet = contact.nodeB.parent as? BulletNode
+			}
+			removeNode(remove: bullet)
+			self.ship.receiveDamage()
+			
+			//TODO: send file update message to enemy player
+		}
+	}
+	
+	func removeNode(remove: SCNNode?){
+		if let node = remove {
+			node.removeAllActions()
+			node.removeFromParentNode()
+		}
+	}
+}
+

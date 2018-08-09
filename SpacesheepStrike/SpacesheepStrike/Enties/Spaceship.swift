@@ -14,6 +14,8 @@ class Spaceship {
 	
 	var node: SCNNode!
 	var bodyNode: SCNNode!
+	var currentDamage: Int!
+	private var immune: Bool!
 	//MARK: Lifecycle methos
 	
 	 init(spaceshipNode: SCNNode) {
@@ -26,6 +28,8 @@ class Spaceship {
 	/// Sets up the spaceship initial values
 	func setupSpaceship() {
 		self.bodyNode = node.childNode(withName: "ship", recursively: true)
+		self.currentDamage = 0
+		self.immune = false
 	}
 	
 	
@@ -42,17 +46,16 @@ class Spaceship {
 			let vectorVelocity = SCNVector3(x: rotatedVelocity.y, y: rotatedVelocity.x, z: rotatedVelocity.z)
 			pbody.velocity = vectorVelocity
 		}
-		
 	}
-	
 	
 	/// Creates a projectile to fire
 	///
 	/// - Returns: Projectile etity of the ship
-	func createProjectile() -> SCNNode? {
+	func createProjectile() -> BulletNode? {
 		if let pbody = self.node.physicsBody {
-			if let bullet = SCNScene(named: "art.scnassets/bullet.scn")?.rootNode.childNode(withName: "bullet", recursively: true) {
-				if let bbody = bullet.physicsBody {
+			if let bulletBody = SCNScene(named: "art.scnassets/bullet.scn")?.rootNode.childNode(withName: "bullet", recursively: true) {
+				if let bbody = bulletBody.physicsBody {
+					let bullet = BulletNode(bulletChild: bulletBody, owner: self)
 					bullet.position = node.position
 					bbody.velocity = SCNVector3Make(pbody.velocity.x, pbody.velocity.y, pbody.velocity.z + GameConstants.bulletSpeed)
 					//Removes bullet from parent after certain time
@@ -63,5 +66,25 @@ class Spaceship {
 		}
 		
 		return nil
+	}
+	
+	
+	/// Receive damage and checks if the game is over, if not makes the ship immune to damage for a certain time
+	func receiveDamage(){
+		if immune {
+			return
+		}
+		
+		self.currentDamage += 1
+		if currentDamage >= GameConstants.shipLife  {
+			//GAME OVER
+			print("Game Over")
+			//TODO: Game Over state change
+		}else {
+			immune = true
+			DispatchQueue.main.asyncAfter(deadline: .now() + GameConstants.immunityTime, execute: {
+				self.immune = false
+			})
+		}
 	}
 }

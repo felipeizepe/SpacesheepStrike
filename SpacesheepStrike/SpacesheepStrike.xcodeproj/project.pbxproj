@@ -19,6 +19,8 @@
 		6A9D4A5A2114801500DCF691 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A9D4A582114801500DCF691 /* LaunchScreen.storyboard */; };
 		6A9D4A622114808B00DCF691 /* GameScene.scn in Resources */ = {isa = PBXBuildFile; fileRef = 6A9D4A612114808B00DCF691 /* GameScene.scn */; };
 		6AB59E732119D2C900B0F4A9 /* QuaternionExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB59E722119D2C900B0F4A9 /* QuaternionExtension.swift */; };
+		6AB6A314211C6A2900EAF823 /* BulletNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB6A313211C6A2900EAF823 /* BulletNode.swift */; };
+		6AB6A316211C6CB200EAF823 /* CollisionConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB6A315211C6CB200EAF823 /* CollisionConstants.swift */; };
 		6AC0574E211B231A0043CE6E /* MultipeerConnectivityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AC0574C211B231A0043CE6E /* MultipeerConnectivityService.swift */; };
 		6AC0574F211B231A0043CE6E /* ScenarioService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AC0574D211B231A0043CE6E /* ScenarioService.swift */; };
 		6AC05751211B23270043CE6E /* ShipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AC05750211B23270043CE6E /* ShipViewController.swift */; };
@@ -40,6 +42,8 @@
 		6A9D4A5B2114801500DCF691 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6A9D4A612114808B00DCF691 /* GameScene.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = GameScene.scn; sourceTree = "<group>"; };
 		6AB59E722119D2C900B0F4A9 /* QuaternionExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuaternionExtension.swift; sourceTree = "<group>"; };
+		6AB6A313211C6A2900EAF823 /* BulletNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulletNode.swift; sourceTree = "<group>"; };
+		6AB6A315211C6CB200EAF823 /* CollisionConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollisionConstants.swift; sourceTree = "<group>"; };
 		6AC0574C211B231A0043CE6E /* MultipeerConnectivityService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MultipeerConnectivityService.swift; path = SpacesheepStrike/Services/MultipeerConnectivityService.swift; sourceTree = SOURCE_ROOT; };
 		6AC0574D211B231A0043CE6E /* ScenarioService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ScenarioService.swift; path = SpacesheepStrike/Services/ScenarioService.swift; sourceTree = SOURCE_ROOT; };
 		6AC05750211B23270043CE6E /* ShipViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShipViewController.swift; sourceTree = "<group>"; };
@@ -73,6 +77,7 @@
 			children = (
 				6A8FD6B421186EA100F7260B /* GameConstants.swift */,
 				6A714CC22118929A00546FAA /* AnimationConstants.swift */,
+				6AB6A315211C6CB200EAF823 /* CollisionConstants.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -125,6 +130,7 @@
 			isa = PBXGroup;
 			children = (
 				6A9656642114CAE800DEB22C /* Spaceship.swift */,
+				6AB6A313211C6A2900EAF823 /* BulletNode.swift */,
 			);
 			path = Enties;
 			sourceTree = "<group>";
@@ -240,8 +246,10 @@
 				6A9656652114CAE800DEB22C /* Spaceship.swift in Sources */,
 				6A8FD6B521186EA100F7260B /* GameConstants.swift in Sources */,
 				6A9D4A522114801300DCF691 /* GameViewController.swift in Sources */,
+				6AB6A314211C6A2900EAF823 /* BulletNode.swift in Sources */,
 				6AC0574E211B231A0043CE6E /* MultipeerConnectivityService.swift in Sources */,
 				6AC05751211B23270043CE6E /* ShipViewController.swift in Sources */,
+				6AB6A316211C6CB200EAF823 /* CollisionConstants.swift in Sources */,
 				6A314ABF2118758D008B6A97 /* CoreMotionService.swift in Sources */,
 				6A9D4A4E2114801200DCF691 /* AppDelegate.swift in Sources */,
 				6AB59E732119D2C900B0F4A9 /* QuaternionExtension.swift in Sources */,
