@@ -40,11 +40,11 @@ class Spaceship {
 		let simq = simd_quatf(quet)
 		bodyNode.simdOrientation = simq * AnimationConstants.rotationAxis
 		if let pbody = node.physicsBody {
-			//let direction = SCNVector3Make( -quet.z * GameConstants.speedFactor, -quet.x * GameConstants.speedFactor, 0.3 - 0.6 * (quet.z - quet.x))
-			let direct = simd_make_float4(pbody.velocity.x,pbody.velocity.y,pbody.velocity.z,0)
-			let rotatedVelocity = simd_mul(bodyNode.simdTransform, direct)
-			let vectorVelocity = SCNVector3(x: rotatedVelocity.y, y: rotatedVelocity.x, z: rotatedVelocity.z)
-			pbody.velocity = vectorVelocity
+			let direction = SCNVector3Make( -quet.z * GameConstants.speedFactor, -quet.x * GameConstants.speedFactor, 0)
+//			let direct = simd_make_float4(pbody.velocity.x,pbody.velocity.y,pbody.velocity.z,0)
+//			let rotatedVelocity = simd_mul(bodyNode.simdTransform, direct)
+//			let vectorVelocity = SCNVector3(x: rotatedVelocity.y, y: rotatedVelocity.x, z: rotatedVelocity.z)
+			pbody.velocity = direction
 		}
 	}
 	
@@ -56,7 +56,7 @@ class Spaceship {
 			if let bulletBody = SCNScene(named: "art.scnassets/bullet.scn")?.rootNode.childNode(withName: "bullet", recursively: true) {
 				if let bbody = bulletBody.physicsBody {
 					let bullet = BulletNode(bulletChild: bulletBody, owner: self)
-					bullet.position = node.position
+					bullet.position = self.node.presentation.position
 					bbody.velocity = SCNVector3Make(pbody.velocity.x, pbody.velocity.y, pbody.velocity.z + GameConstants.bulletSpeed)
 					//Removes bullet from parent after certain time
 					bullet.runAction(SCNAction.sequence([SCNAction.wait(duration: GameConstants.bulletDuration), SCNAction.removeFromParentNode()]))

@@ -101,7 +101,10 @@ extension GameViewController: SCNSceneRendererDelegate {
 		if var deviceQuaternion = CoreMotionService.shared.deviceQuaternion{
 			deviceQuaternion.y -= GameConstants.phoneInitialInclination
 			deviceQuaternion.restrict(restrictionValue: GameConstants.rotationMax)
-			let scnQuaterion = SCNQuaternion(-deviceQuaternion.y * 2.0, 0, -deviceQuaternion.x * 2.0, deviceQuaternion.w)
+			let scnQuaterion = SCNQuaternion(-deviceQuaternion.y * GameConstants.rotationFactor,
+																			 0,
+																			 -deviceQuaternion.x * GameConstants.rotationFactor,
+																			 deviceQuaternion.w * GameConstants.rotationFactor)
 			
 			ship.moveInRelation(toQuaternion: scnQuaterion)
 		}
@@ -157,7 +160,7 @@ extension GameViewController: SCNPhysicsContactDelegate {
 			}
 			//Removes bullet
 			removeNode(remove: bullet)
-			
+			self.ship.receiveDamage()
 			//TODO: send damage message to enemy player
 			
 		} else if (contactMask == (CollisionConstants.bulletCategoryMask | CollisionConstants.shipCategoryMask)) {

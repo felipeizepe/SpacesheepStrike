@@ -41,7 +41,7 @@ extension CMQuaternion {
 		let negative = (-1) * max
 		if value > max {
 			return max
-		}else if self.y < negative {
+		}else if value < negative {
 			return negative
 		}
 		

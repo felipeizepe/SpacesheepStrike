@@ -14,9 +14,9 @@ struct GameConstants {
 	static let bulletDuration: Double = 6.0
 	
 	//MARK: Movement Constants
-	static let speedFactor: Float = 1.0
-	static let rotationFactor: Float = 4.0
-	static let rotationMax = 0.5
+	static let speedFactor: Float = 2.0
+	static let rotationFactor: Double = 2.0
+	static let rotationMax = 0.15
 	
 	//MARK: Motion Detection Constantes
 	static let phoneInitialInclination = 0.25
