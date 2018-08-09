@@ -23,8 +23,6 @@ class Spaceship {
 	}
 	
 	//MARK: Auxiliary methods
-	
-	
 	/// Sets up the spaceship initial values
 	func setupSpaceship() {
 		self.bodyNode = node.childNode(withName: "ship", recursively: true)
@@ -55,7 +53,10 @@ class Spaceship {
 		if let pbody = self.node.physicsBody {
 			if let bullet = SCNScene(named: "art.scnassets/bullet.scn")?.rootNode.childNode(withName: "bullet", recursively: true) {
 				if let bbody = bullet.physicsBody {
+					bullet.position = node.position
 					bbody.velocity = SCNVector3Make(pbody.velocity.x, pbody.velocity.y, pbody.velocity.z + GameConstants.bulletSpeed)
+					//Removes bullet from parent after certain time
+					bullet.runAction(SCNAction.sequence([SCNAction.wait(duration: GameConstants.bulletDuration), SCNAction.removeFromParentNode()]))
 					return bullet
 				}
 			}

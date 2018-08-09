@@ -66,7 +66,6 @@ class GameViewController: UIViewController {
 	//MARK: Outlets methods
 	@objc
 	func handleTap(_ gestureRecognize: UIGestureRecognizer) {
-		// retrieve the SCNView
 		if let bullet = ship.createProjectile() {
 			scnView.scene?.rootNode.addChildNode(bullet)
 		}
