@@ -10,11 +10,12 @@ import Foundation
 
 struct GameConstants {
 	//MARK: Bullet constants
-	static let bulletSpeed: Float = 10.0
+	static let bulletSpeed: Float = 40.0
 	static let bulletDuration: Double = 6.0
 	
 	//MARK: Movement Constants
-	static let speedFactor: Float = 2.0
+	static let speedFactorX: Float = 12.0
+	static let speedFactorY: Float = 18.0
 	static let rotationFactor: Double = 2.0
 	static let rotationMax = 0.15
 	

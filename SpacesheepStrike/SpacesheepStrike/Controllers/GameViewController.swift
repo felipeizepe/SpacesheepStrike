@@ -61,6 +61,8 @@ class GameViewController: UIViewController {
 		
 		// configure the view
 		scnView.backgroundColor = UIColor.white
+		
+		self.setupSound()
 	}
 	
 	//MARK: Outlets methods
@@ -74,6 +76,15 @@ class GameViewController: UIViewController {
 	/// Start the services needed
 	func setupServices() {
 		self.multipeerConnectivityService.delegate = self
+	}
+	
+	
+	/// Sets up de sound
+	func setupSound() {
+		if let music = SCNAudioSource(fileNamed: "art.scnassets/Music/Motherlode.mp3") {
+			self.scnView.scene!.rootNode.runAction(SCNAction.repeatForever(SCNAction.playAudio(music, waitForCompletion: true)))
+		}
+		
 	}
 	
 	//MARK: Device Options
