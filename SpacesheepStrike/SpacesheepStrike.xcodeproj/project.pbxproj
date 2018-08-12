@@ -26,6 +26,7 @@
 		6AC05751211B23270043CE6E /* ShipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AC05750211B23270043CE6E /* ShipViewController.swift */; };
 		6AC05753211B23990043CE6E /* DoubleExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AC05752211B23990043CE6E /* DoubleExtensions.swift */; };
 		B03D94C6211FDBAF0018A8EB /* StartOverlay.sks in Resources */ = {isa = PBXBuildFile; fileRef = B03D94C5211FDBAF0018A8EB /* StartOverlay.sks */; };
+		B03D94C82120B30D0018A8EB /* LobbyOverlay.sks in Resources */ = {isa = PBXBuildFile; fileRef = B03D94C72120B30D0018A8EB /* LobbyOverlay.sks */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		6AC05750211B23270043CE6E /* ShipViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShipViewController.swift; sourceTree = "<group>"; };
 		6AC05752211B23990043CE6E /* DoubleExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleExtensions.swift; sourceTree = "<group>"; };
 		B03D94C5211FDBAF0018A8EB /* StartOverlay.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = StartOverlay.sks; sourceTree = "<group>"; };
+		B03D94C72120B30D0018A8EB /* LobbyOverlay.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = LobbyOverlay.sks; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,7 +118,6 @@
 				6A8FD6B621186ECE00F7260B /* Utils */,
 				6A9D4A66211480C500DCF691 /* Controllers */,
 				6A9D4A65211480BD00DCF691 /* Scenes */,
-				6A9D4A64211480B500DCF691 /* Component */,
 				6A9D4A632114809100DCF691 /* Enties */,
 				6A9D4A4D2114801200DCF691 /* AppDelegate.swift */,
 				6A9D4A4F2114801300DCF691 /* art.scnassets */,
@@ -137,18 +138,12 @@
 			path = Enties;
 			sourceTree = "<group>";
 		};
-		6A9D4A64211480B500DCF691 /* Component */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Component;
-			sourceTree = "<group>";
-		};
 		6A9D4A65211480BD00DCF691 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
 				6A9D4A612114808B00DCF691 /* GameScene.scn */,
 				B03D94C5211FDBAF0018A8EB /* StartOverlay.sks */,
+				B03D94C72120B30D0018A8EB /* LobbyOverlay.sks */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -233,6 +228,7 @@
 				B03D94C6211FDBAF0018A8EB /* StartOverlay.sks in Resources */,
 				6A9D4A5A2114801500DCF691 /* LaunchScreen.storyboard in Resources */,
 				6A9D4A572114801500DCF691 /* Assets.xcassets in Resources */,
+				B03D94C82120B30D0018A8EB /* LobbyOverlay.sks in Resources */,
 				6A9D4A622114808B00DCF691 /* GameScene.scn in Resources */,
 				6A9D4A552114801300DCF691 /* Main.storyboard in Resources */,
 			);
