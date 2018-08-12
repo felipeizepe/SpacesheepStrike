@@ -25,6 +25,7 @@
 		6AC0574F211B231A0043CE6E /* ScenarioService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AC0574D211B231A0043CE6E /* ScenarioService.swift */; };
 		6AC05751211B23270043CE6E /* ShipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AC05750211B23270043CE6E /* ShipViewController.swift */; };
 		6AC05753211B23990043CE6E /* DoubleExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AC05752211B23990043CE6E /* DoubleExtensions.swift */; };
+		B03D94C6211FDBAF0018A8EB /* StartOverlay.sks in Resources */ = {isa = PBXBuildFile; fileRef = B03D94C5211FDBAF0018A8EB /* StartOverlay.sks */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		6AC0574D211B231A0043CE6E /* ScenarioService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ScenarioService.swift; path = SpacesheepStrike/Services/ScenarioService.swift; sourceTree = SOURCE_ROOT; };
 		6AC05750211B23270043CE6E /* ShipViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShipViewController.swift; sourceTree = "<group>"; };
 		6AC05752211B23990043CE6E /* DoubleExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleExtensions.swift; sourceTree = "<group>"; };
+		B03D94C5211FDBAF0018A8EB /* StartOverlay.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = StartOverlay.sks; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +148,7 @@
 			isa = PBXGroup;
 			children = (
 				6A9D4A612114808B00DCF691 /* GameScene.scn */,
+				B03D94C5211FDBAF0018A8EB /* StartOverlay.sks */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -227,6 +230,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6A9D4A502114801300DCF691 /* art.scnassets in Resources */,
+				B03D94C6211FDBAF0018A8EB /* StartOverlay.sks in Resources */,
 				6A9D4A5A2114801500DCF691 /* LaunchScreen.storyboard in Resources */,
 				6A9D4A572114801500DCF691 /* Assets.xcassets in Resources */,
 				6A9D4A622114808B00DCF691 /* GameScene.scn in Resources */,
@@ -400,7 +404,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = WYJTXQ45H3;
+				DEVELOPMENT_TEAM = D6FBY3CTDY;
 				INFOPLIST_FILE = SpacesheepStrike/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -418,7 +422,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = WYJTXQ45H3;
+				DEVELOPMENT_TEAM = D6FBY3CTDY;
 				INFOPLIST_FILE = SpacesheepStrike/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
