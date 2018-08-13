@@ -26,7 +26,10 @@
 		6AC05751211B23270043CE6E /* ShipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AC05750211B23270043CE6E /* ShipViewController.swift */; };
 		6AC05753211B23990043CE6E /* DoubleExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AC05752211B23990043CE6E /* DoubleExtensions.swift */; };
 		B03D94C6211FDBAF0018A8EB /* StartOverlay.sks in Resources */ = {isa = PBXBuildFile; fileRef = B03D94C5211FDBAF0018A8EB /* StartOverlay.sks */; };
-		B03D94C82120B30D0018A8EB /* LobbyOverlay.sks in Resources */ = {isa = PBXBuildFile; fileRef = B03D94C72120B30D0018A8EB /* LobbyOverlay.sks */; };
+		B03D94CA2120B37F0018A8EB /* LobbyOverlay.sks in Resources */ = {isa = PBXBuildFile; fileRef = B03D94C92120B37F0018A8EB /* LobbyOverlay.sks */; };
+		B04747F9212115AE00F46CFE /* HUDOverlay.sks in Resources */ = {isa = PBXBuildFile; fileRef = B04747F8212115AE00F46CFE /* HUDOverlay.sks */; };
+		B04747FB2121166800F46CFE /* HUDLoadingOverlay.sks in Resources */ = {isa = PBXBuildFile; fileRef = B04747FA2121166800F46CFE /* HUDLoadingOverlay.sks */; };
+		B04747FD212117E500F46CFE /* EndGameOverlay.sks in Resources */ = {isa = PBXBuildFile; fileRef = B04747FC212117E500F46CFE /* EndGameOverlay.sks */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,7 +54,10 @@
 		6AC05750211B23270043CE6E /* ShipViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShipViewController.swift; sourceTree = "<group>"; };
 		6AC05752211B23990043CE6E /* DoubleExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleExtensions.swift; sourceTree = "<group>"; };
 		B03D94C5211FDBAF0018A8EB /* StartOverlay.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = StartOverlay.sks; sourceTree = "<group>"; };
-		B03D94C72120B30D0018A8EB /* LobbyOverlay.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = LobbyOverlay.sks; sourceTree = "<group>"; };
+		B03D94C92120B37F0018A8EB /* LobbyOverlay.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = LobbyOverlay.sks; sourceTree = "<group>"; };
+		B04747F8212115AE00F46CFE /* HUDOverlay.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = HUDOverlay.sks; sourceTree = "<group>"; };
+		B04747FA2121166800F46CFE /* HUDLoadingOverlay.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = HUDLoadingOverlay.sks; sourceTree = "<group>"; };
+		B04747FC212117E500F46CFE /* EndGameOverlay.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = EndGameOverlay.sks; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +120,7 @@
 		6A9D4A4C2114801200DCF691 /* SpacesheepStrike */ = {
 			isa = PBXGroup;
 			children = (
+				B018F1BC2121FE8700AE086F /* Overlays */,
 				6A314ABD2118756D008B6A97 /* Services */,
 				6A8FD6B621186ECE00F7260B /* Utils */,
 				6A9D4A66211480C500DCF691 /* Controllers */,
@@ -142,8 +149,6 @@
 			isa = PBXGroup;
 			children = (
 				6A9D4A612114808B00DCF691 /* GameScene.scn */,
-				B03D94C5211FDBAF0018A8EB /* StartOverlay.sks */,
-				B03D94C72120B30D0018A8EB /* LobbyOverlay.sks */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -164,6 +169,18 @@
 				6AC05752211B23990043CE6E /* DoubleExtensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		B018F1BC2121FE8700AE086F /* Overlays */ = {
+			isa = PBXGroup;
+			children = (
+				B03D94C5211FDBAF0018A8EB /* StartOverlay.sks */,
+				B03D94C92120B37F0018A8EB /* LobbyOverlay.sks */,
+				B04747FA2121166800F46CFE /* HUDLoadingOverlay.sks */,
+				B04747F8212115AE00F46CFE /* HUDOverlay.sks */,
+				B04747FC212117E500F46CFE /* EndGameOverlay.sks */,
+			);
+			path = Overlays;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -224,11 +241,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B04747FD212117E500F46CFE /* EndGameOverlay.sks in Resources */,
+				B04747F9212115AE00F46CFE /* HUDOverlay.sks in Resources */,
 				6A9D4A502114801300DCF691 /* art.scnassets in Resources */,
+				B04747FB2121166800F46CFE /* HUDLoadingOverlay.sks in Resources */,
 				B03D94C6211FDBAF0018A8EB /* StartOverlay.sks in Resources */,
 				6A9D4A5A2114801500DCF691 /* LaunchScreen.storyboard in Resources */,
 				6A9D4A572114801500DCF691 /* Assets.xcassets in Resources */,
-				B03D94C82120B30D0018A8EB /* LobbyOverlay.sks in Resources */,
+				B03D94CA2120B37F0018A8EB /* LobbyOverlay.sks in Resources */,
 				6A9D4A622114808B00DCF691 /* GameScene.scn in Resources */,
 				6A9D4A552114801300DCF691 /* Main.storyboard in Resources */,
 			);
