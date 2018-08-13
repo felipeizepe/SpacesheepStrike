@@ -50,11 +50,11 @@ class Spaceship {
 		let simq = simd_quatf(quet)
 		bodyNode.simdOrientation = simq * AnimationConstants.rotationAxis
 		if let pbody = node.physicsBody {
-			let direction = SCNVector3Make( -quet.z * GameConstants.speedFactorX, -quet.x * GameConstants.speedFactorY, 0)
-//			let direct = simd_make_float4(pbody.velocity.x,pbody.velocity.y,pbody.velocity.z,0)
-//			let rotatedVelocity = simd_mul(bodyNode.simdTransform, direct)
-//			let vectorVelocity = SCNVector3(x: rotatedVelocity.y, y: rotatedVelocity.x, z: rotatedVelocity.z)
-			pbody.velocity = direction
+			let vel = SCNVector3Make(GameConstants.speedFactorX, GameConstants.speedFactorY, GameConstants.speedFactorZ)
+			let directionQuat = simq.act(simd_make_float3(vel.x, vel.y, vel.z))
+			let velocity = SCNVector3Make(directionQuat.x, directionQuat.y, abs(directionQuat.z))
+			//let direction = SCNVector3Make( -quet.z * GameConstants.speedFactorX, -quet.x * GameConstants.speedFactorY,0)
+			pbody.velocity = velocity
 		}
 	}
 	
