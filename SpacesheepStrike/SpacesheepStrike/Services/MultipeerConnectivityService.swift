@@ -36,10 +36,8 @@ class MultipeerConnectivityService: NSObject {
 		super.init()
 		// Advertiser
 		self.serviceAdvertiser.delegate = self
-		self.serviceAdvertiser.startAdvertisingPeer()
 		// Browser
 		self.serviceBrowser.delegate = self
-		self.serviceBrowser.startBrowsingForPeers()
 	}
 	
 	deinit {
@@ -60,6 +58,22 @@ class MultipeerConnectivityService: NSObject {
 			}
 		}
 	}
+	
+	func startAdvertising() {
+		self.serviceAdvertiser.startAdvertisingPeer()
+	}
+	
+	func stopAdvertising() {
+		self.serviceAdvertiser.stopAdvertisingPeer()
+	}
+	
+	func startBrowsing() {
+		self.serviceBrowser.startBrowsingForPeers()
+	}
+	
+	func stopBrowsing() {
+		self.serviceBrowser.stopBrowsingForPeers()
+	}
 }
 
 extension MultipeerConnectivityService: MCNearbyServiceAdvertiserDelegate {
@@ -71,8 +85,6 @@ extension MultipeerConnectivityService: MCNearbyServiceAdvertiserDelegate {
 	func advertiser(_ advertiser: MCNearbyServiceAdvertiser, didNotStartAdvertisingPeer error: Error) {
 		NSLog("%@", "didNotStartAdvertisingPeer: \(error)")
 	}
-	
-	
 }
 
 extension MultipeerConnectivityService: MCNearbyServiceBrowserDelegate {

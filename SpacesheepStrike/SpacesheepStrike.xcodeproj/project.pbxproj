@@ -30,11 +30,13 @@
 		B018F1C321221DCF00AE086F /* SKCheckBoxButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B018F1C221221DCF00AE086F /* SKCheckBoxButton.swift */; };
 		B018F1C52122241800AE086F /* BaseOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = B018F1C42122241800AE086F /* BaseOverlay.swift */; };
 		B018F1C72122277A00AE086F /* SKButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B018F1C62122277A00AE086F /* SKButton.swift */; };
+		B018F1C921226BBE00AE086F /* StartOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = B018F1C821226BBE00AE086F /* StartOverlay.swift */; };
 		B03D94C6211FDBAF0018A8EB /* StartOverlay.sks in Resources */ = {isa = PBXBuildFile; fileRef = B03D94C5211FDBAF0018A8EB /* StartOverlay.sks */; };
 		B03D94CA2120B37F0018A8EB /* LobbyOverlay.sks in Resources */ = {isa = PBXBuildFile; fileRef = B03D94C92120B37F0018A8EB /* LobbyOverlay.sks */; };
 		B04747F9212115AE00F46CFE /* HUDOverlay.sks in Resources */ = {isa = PBXBuildFile; fileRef = B04747F8212115AE00F46CFE /* HUDOverlay.sks */; };
 		B04747FB2121166800F46CFE /* HUDLoadingOverlay.sks in Resources */ = {isa = PBXBuildFile; fileRef = B04747FA2121166800F46CFE /* HUDLoadingOverlay.sks */; };
 		B04747FD212117E500F46CFE /* EndGameOverlay.sks in Resources */ = {isa = PBXBuildFile; fileRef = B04747FC212117E500F46CFE /* EndGameOverlay.sks */; };
+		B0AE5403212311E40089547E /* LobbyOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AE5402212311E40089547E /* LobbyOverlay.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,11 +65,13 @@
 		B018F1C221221DCF00AE086F /* SKCheckBoxButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKCheckBoxButton.swift; sourceTree = "<group>"; };
 		B018F1C42122241800AE086F /* BaseOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseOverlay.swift; sourceTree = "<group>"; };
 		B018F1C62122277A00AE086F /* SKButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKButton.swift; sourceTree = "<group>"; };
+		B018F1C821226BBE00AE086F /* StartOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartOverlay.swift; sourceTree = "<group>"; };
 		B03D94C5211FDBAF0018A8EB /* StartOverlay.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = StartOverlay.sks; sourceTree = "<group>"; };
 		B03D94C92120B37F0018A8EB /* LobbyOverlay.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = LobbyOverlay.sks; sourceTree = "<group>"; };
 		B04747F8212115AE00F46CFE /* HUDOverlay.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = HUDOverlay.sks; sourceTree = "<group>"; };
 		B04747FA2121166800F46CFE /* HUDLoadingOverlay.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = HUDLoadingOverlay.sks; sourceTree = "<group>"; };
 		B04747FC212117E500F46CFE /* EndGameOverlay.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = EndGameOverlay.sks; sourceTree = "<group>"; };
+		B0AE5402212311E40089547E /* LobbyOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LobbyOverlay.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,9 +162,8 @@
 		6A9D4A65211480BD00DCF691 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				6A9D4A612114808B00DCF691 /* GameScene.scn */,
-				B018F1BE21220FBD00AE086F /* StartScene.scn */,
-				B018F1C0212214D800AE086F /* StartScene.swift */,
+				B0AE5401212311690089547E /* Classes */,
+				B0AE54002123113C0089547E /* SCNScenes */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -186,16 +189,51 @@
 		B018F1BC2121FE8700AE086F /* OverlaysScenes */ = {
 			isa = PBXGroup;
 			children = (
+				B0AE53FF212310F90089547E /* Classes */,
+				B0AE53FE212310E70089547E /* SKScenes */,
+				B018F1C221221DCF00AE086F /* SKCheckBoxButton.swift */,
+				B018F1C62122277A00AE086F /* SKButton.swift */,
+			);
+			path = OverlaysScenes;
+			sourceTree = "<group>";
+		};
+		B0AE53FE212310E70089547E /* SKScenes */ = {
+			isa = PBXGroup;
+			children = (
 				B03D94C5211FDBAF0018A8EB /* StartOverlay.sks */,
 				B03D94C92120B37F0018A8EB /* LobbyOverlay.sks */,
 				B04747FA2121166800F46CFE /* HUDLoadingOverlay.sks */,
 				B04747F8212115AE00F46CFE /* HUDOverlay.sks */,
 				B04747FC212117E500F46CFE /* EndGameOverlay.sks */,
-				B018F1C42122241800AE086F /* BaseOverlay.swift */,
-				B018F1C221221DCF00AE086F /* SKCheckBoxButton.swift */,
-				B018F1C62122277A00AE086F /* SKButton.swift */,
 			);
-			path = OverlaysScenes;
+			path = SKScenes;
+			sourceTree = "<group>";
+		};
+		B0AE53FF212310F90089547E /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				B018F1C42122241800AE086F /* BaseOverlay.swift */,
+				B018F1C821226BBE00AE086F /* StartOverlay.swift */,
+				B0AE5402212311E40089547E /* LobbyOverlay.swift */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		B0AE54002123113C0089547E /* SCNScenes */ = {
+			isa = PBXGroup;
+			children = (
+				6A9D4A612114808B00DCF691 /* GameScene.scn */,
+				B018F1BE21220FBD00AE086F /* StartScene.scn */,
+			);
+			path = SCNScenes;
+			sourceTree = "<group>";
+		};
+		B0AE5401212311690089547E /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				B018F1C0212214D800AE086F /* StartScene.swift */,
+			);
+			path = Classes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -278,6 +316,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6A714CC32118929A00546FAA /* AnimationConstants.swift in Sources */,
+				B018F1C921226BBE00AE086F /* StartOverlay.swift in Sources */,
 				B018F1C1212214D800AE086F /* StartScene.swift in Sources */,
 				6AC0574F211B231A0043CE6E /* ScenarioService.swift in Sources */,
 				6A9656652114CAE800DEB22C /* Spaceship.swift in Sources */,
@@ -288,6 +327,7 @@
 				6AC05751211B23270043CE6E /* ShipViewController.swift in Sources */,
 				B018F1C52122241800AE086F /* BaseOverlay.swift in Sources */,
 				B018F1C72122277A00AE086F /* SKButton.swift in Sources */,
+				B0AE5403212311E40089547E /* LobbyOverlay.swift in Sources */,
 				B018F1C321221DCF00AE086F /* SKCheckBoxButton.swift in Sources */,
 				6AB6A316211C6CB200EAF823 /* CollisionConstants.swift in Sources */,
 				6A314ABF2118758D008B6A97 /* CoreMotionService.swift in Sources */,

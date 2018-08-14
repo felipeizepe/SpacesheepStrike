@@ -20,8 +20,14 @@ class SKCheckBoxButton: SKSpriteNode {
 	///
 	/// - Parameters:
 	///
-	func pressed() {
-		print("\(self.name!) pressed.")
+	func pressed(actionAfterAnimation: SKAction) {
+		// Button animation
+		let fadeOutAction = SKAction.fadeOut(withDuration: 0.1)
+		let fadeInAction = fadeOutAction.reversed()
+		let actionSequence = SKAction.sequence([fadeOutAction,fadeInAction,actionAfterAnimation])
+		self.run(actionSequence)
+		
+		// Toggle check box
 		guard (checkedBox != nil) else {
 			print("ERROR: No checkBox found in SKSpriteNode")
 			return
@@ -31,5 +37,7 @@ class SKCheckBoxButton: SKSpriteNode {
 		}else {
 			checkedBox?.isHidden = true
 		}
+		
+		print("\(self.name!) pressed.")
 	}
 }

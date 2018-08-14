@@ -18,9 +18,11 @@ class ShipViewController: UIViewController{
 	
     override func viewDidLoad() {
         super.viewDidLoad()
+		// SCNScene
 		startScene = StartScene.init()
 		self.scnView.scene = startScene?.scene
-		self.scnView.overlaySKScene = BaseOverlay(fileNamed: "StartOverlay.sks")
+		// Set the start Overlay
+		self.setStartOverlay()
 		// Create Gesture to press button
 		let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(tap:)))
 		self.view.addGestureRecognizer(tapGesture)
@@ -34,6 +36,37 @@ class ShipViewController: UIViewController{
 		overlay.tapReceived(location: tap.location(in: self.scnView))
 		return
 	}
+	
+	
+}
+
+extension ShipViewController: OverlayProtocol {
+	func setStartOverlay() {
+		let startOverlay = StartOverlay(fileNamed: "StartOverlay.sks")
+		startOverlay?.overlayDelegate = self
+		self.scnView.overlaySKScene = startOverlay
+		self.scnView.overlaySKScene?.isPaused = false
+	}
+	
+	func setLobbyOverlay() {
+		let lobbyOverlay = LobbyOverlay(fileNamed: "LobbyOverlay.sks")
+		lobbyOverlay?.overlayDelegate = self
+		self.scnView.overlaySKScene = lobbyOverlay
+		self.scnView.overlaySKScene?.isPaused = false
+	}
+	
+	func setHUDLoadingOverlay() {
+		print("Set HUDLoading Overlay")
+	}
+	
+	func setHUDOverlay() {
+		print("Set HUD Overlay")
+	}
+	
+	func setEndGameOverlay() {
+		print("Set EndGame Overlay")
+	}
+	
 	
 }
 

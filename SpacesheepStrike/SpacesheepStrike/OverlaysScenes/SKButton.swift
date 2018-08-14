@@ -13,7 +13,13 @@ class SKButton: SKSpriteNode {
 	///
 	/// - Parameters:
 	///
-	func pressed(){
+	func pressed(actionAfterAnimation: SKAction){
+		// Button animation
+		let fadeOutAction = SKAction.fadeOut(withDuration: 0.1)
+		let fadeInAction = fadeOutAction.reversed()
+		let actionSequence = SKAction.sequence([fadeOutAction,fadeInAction,actionAfterAnimation])
+		self.run(actionSequence)
+		
 		print("\(self.name!) pressed.")
 	}
 }
