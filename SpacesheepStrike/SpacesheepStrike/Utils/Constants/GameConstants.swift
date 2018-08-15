@@ -16,6 +16,7 @@ struct GameConstants {
 	//MARK: Movement Constants
 	static let speedFactorX: Float = 12.0
 	static let speedFactorY: Float = 18.0
+	static let speedFactorZ: Float = 10.0
 	static let rotationFactor: Double = 2.0
 	static let rotationMax = 0.15
 	

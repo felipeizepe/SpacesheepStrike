@@ -34,12 +34,30 @@ class Spaceship {
 	func setupSpaceship() {
 		self.bodyNode = node.childNode(withName: "ship", recursively: true)
 		
+		if let thrusters = node.childNode(withName: "thrustersBox", recursively: true) {
+			let smoke = Spaceship.createSmokeTrail(geometry: thrusters.geometry!)
+			thrusters.addParticleSystem(smoke)
+		}
+		
+		if let wingLeft = node.childNode(withName: "wingL", recursively: true) {
+			let wind = Spaceship.createWindTrail(geometry: wingLeft.geometry!)
+			wingLeft.addParticleSystem(wind)
+		}
+		
+		if let wingRight = node.childNode(withName: "wingR", recursively: true) {
+			let wind = Spaceship.createWindTrail(geometry: wingRight.geometry!)
+			wingRight.addParticleSystem(wind)
+		}
+		
+		
 		self.currentDamage = 0
 		self.immune = false
 		
 		//MARK: sound setup
 		self.fireSound = SCNAudioSource(fileNamed: "art.scnassets/Sounds/LaserShot.wav")
 		self.hitSound = SCNAudioSource(fileNamed: "art.scnassets/Sounds/Shields.wav")
+		
+		
 	}
 	
 	
@@ -50,10 +68,10 @@ class Spaceship {
 		let simq = simd_quatf(quet)
 		bodyNode.simdOrientation = simq * AnimationConstants.rotationAxis
 		if let pbody = node.physicsBody {
-			let direction = SCNVector3Make( -quet.z * GameConstants.speedFactorX, -quet.x * GameConstants.speedFactorY, 0)
-//			let direct = simd_make_float4(pbody.velocity.x,pbody.velocity.y,pbody.velocity.z,0)
-//			let rotatedVelocity = simd_mul(bodyNode.simdTransform, direct)
-//			let vectorVelocity = SCNVector3(x: rotatedVelocity.y, y: rotatedVelocity.x, z: rotatedVelocity.z)
+//			let vel = SCNVector3Make(GameConstants.speedFactorX, GameConstants.speedFactorY, GameConstants.speedFactorZ)
+//			let directionQuat = simq.act(simd_make_float3(vel.x, vel.y, vel.z))
+//			let velocity = SCNVector3Make(directionQuat.x, directionQuat.y, abs(directionQuat.z))
+			let direction = SCNVector3Make( -quet.z * GameConstants.speedFactorX, -quet.x * GameConstants.speedFactorY,0)
 			pbody.velocity = direction
 		}
 	}
@@ -71,7 +89,8 @@ class Spaceship {
 				for childB in bulletBody.childNodes {
 					if let bbody = childB.physicsBody {
 						bbody.velocity = SCNVector3Make(pbody.velocity.x, pbody.velocity.y, pbody.velocity.z + GameConstants.bulletSpeed)
-					
+						let sparks = BulletNode.createSparks(geometry: childB.geometry!)
+						childB.addParticleSystem(sparks)
 					}
 				}
 				//Removes bullet from parent after certain time
@@ -107,5 +126,18 @@ class Spaceship {
 				self.immune = false
 			})
 		}
+	}
+	
+	
+	static func createSmokeTrail(geometry: SCNGeometry) -> SCNParticleSystem {
+		let trail = SCNParticleSystem(named: "smokeTrail.scnp", inDirectory: nil)!
+		trail.emitterShape = geometry
+		return trail
+	}
+	
+	static func createWindTrail(geometry: SCNGeometry) -> SCNParticleSystem {
+		let trail = SCNParticleSystem(named: "WindParticle.scnp", inDirectory: nil)!
+		trail.emitterShape = geometry
+		return trail
 	}
 }

@@ -28,4 +28,10 @@ class BulletNode: SCNNode {
 		super.init(coder: aDecoder)
 	}
 	
+	static func createSparks(geometry: SCNGeometry) -> SCNParticleSystem {
+		let trail = SCNParticleSystem(named: "LaserSparks.scnp", inDirectory: nil)!
+		trail.emitterShape = geometry
+		return trail
+	}
+	
 }

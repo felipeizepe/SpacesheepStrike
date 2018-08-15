@@ -79,12 +79,14 @@ class MultipeerConnectivityService: NSObject {
 extension MultipeerConnectivityService: MCNearbyServiceAdvertiserDelegate {
 	func advertiser(_ advertiser: MCNearbyServiceAdvertiser, didReceiveInvitationFromPeer peerID: MCPeerID, withContext context: Data?, invitationHandler: @escaping (Bool, MCSession?) -> Void) {
 		NSLog("%@", "didReceiveInvitationFromPeer \(peerID)")
+		
 		invitationHandler(true, self.session)
 	}
 	
 	func advertiser(_ advertiser: MCNearbyServiceAdvertiser, didNotStartAdvertisingPeer error: Error) {
 		NSLog("%@", "didNotStartAdvertisingPeer: \(error)")
 	}
+	
 }
 
 extension MultipeerConnectivityService: MCNearbyServiceBrowserDelegate {

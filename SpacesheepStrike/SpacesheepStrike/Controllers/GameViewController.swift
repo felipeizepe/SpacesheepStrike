@@ -16,6 +16,7 @@ class GameViewController: UIViewController {
 	@IBOutlet weak var scnView: SCNView!
 	@IBOutlet weak var dataLabel: UILabel!
 	@IBOutlet weak var sessionOwnerLabel: UILabel!
+	
 	let multipeerConnectivityService: MultipeerConnectivityService = MultipeerConnectivityService()
 	var roll: Float = 0
 	var pitch: Float = 0
