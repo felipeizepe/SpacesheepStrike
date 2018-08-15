@@ -112,7 +112,7 @@ class Spaceship {
 			return
 		}
 		
-		self.currentDamage += 1
+		self.currentDamage = self.currentDamage! + 1
 		
 		self.node.runAction(SCNAction.playAudio(hitSound, waitForCompletion: false))
 		
