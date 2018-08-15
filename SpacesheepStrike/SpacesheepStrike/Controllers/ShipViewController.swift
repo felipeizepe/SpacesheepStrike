@@ -11,18 +11,25 @@ import CoreMotion
 import SceneKit
 import SpriteKit
 
+protocol KeyboardResponseProtocol {
+	func textFieldValue(text: String)
+}
+
 class ShipViewController: UIViewController{
 	
 	@IBOutlet var scnView: SCNView!
 	var startScene: StartScene?
+	var keyboardDelegate: KeyboardResponseProtocol?
 	
-    override func viewDidLoad() {
+	@IBOutlet weak var roomNameInsertionField: UITextField!
+	
+	override func viewDidLoad() {
         super.viewDidLoad()
 		// SCNScene
 		startScene = StartScene.init()
 		self.scnView.scene = startScene?.scene
 		// Set the start Overlay
-		self.setStartOverlay()
+		self.setLobbyOverlay()
 		// Create Gesture to press button
 		let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(tap:)))
 		self.view.addGestureRecognizer(tapGesture)
@@ -37,7 +44,6 @@ class ShipViewController: UIViewController{
 		return
 	}
 	
-	
 }
 
 extension ShipViewController: OverlayProtocol {
@@ -51,6 +57,7 @@ extension ShipViewController: OverlayProtocol {
 	func setLobbyOverlay() {
 		let lobbyOverlay = LobbyOverlay(fileNamed: "LobbyOverlay.sks")
 		lobbyOverlay?.overlayDelegate = self
+//		self.keyboardDelegate = lobbyOverlay
 		self.scnView.overlaySKScene = lobbyOverlay
 		self.scnView.overlaySKScene?.isPaused = false
 	}

@@ -6,6 +6,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -13,17 +15,43 @@
         <scene sceneID="tXr-a1-R10">
             <objects>
                 <viewController id="BV1-FR-VrT" customClass="ShipViewController" customModule="SpacesheepStrike" customModuleProvider="target" sceneMemberID="viewController">
-                    <sceneKitView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="uJx-0m-5Wn">
+                    <view key="view" contentMode="scaleToFill" id="gSe-Mb-LjF">
                         <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    </sceneKitView>
+                        <subviews>
+                            <sceneKitView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OY4-Gg-MSt">
+                                <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                            </sceneKitView>
+                            <textField opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Type Here" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="Ige-nD-d6L">
+                                <rect key="frame" x="297" y="56" width="261" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="261" id="G69-zI-j6b"/>
+                                    <constraint firstAttribute="height" constant="40" id="dHz-SI-oaJ"/>
+                                </constraints>
+                                <color key="textColor" red="0.77647058820000003" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="30"/>
+                                <textInputTraits key="textInputTraits" keyboardAppearance="alert" enablesReturnKeyAutomatically="YES"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="5Dy-IU-5Bh" firstAttribute="top" secondItem="Ige-nD-d6L" secondAttribute="centerY" constant="-76" id="9hh-jb-5q0"/>
+                            <constraint firstItem="OY4-Gg-MSt" firstAttribute="centerY" secondItem="5Dy-IU-5Bh" secondAttribute="centerY" id="Lau-ln-jpI"/>
+                            <constraint firstItem="OY4-Gg-MSt" firstAttribute="centerX" secondItem="5Dy-IU-5Bh" secondAttribute="centerX" id="fQV-mE-Mb2"/>
+                            <constraint firstItem="OY4-Gg-MSt" firstAttribute="width" secondItem="gSe-Mb-LjF" secondAttribute="width" id="iST-RI-YBL"/>
+                            <constraint firstItem="OY4-Gg-MSt" firstAttribute="height" secondItem="gSe-Mb-LjF" secondAttribute="height" id="rut-MX-sNt"/>
+                            <constraint firstItem="Ige-nD-d6L" firstAttribute="centerX" secondItem="5Dy-IU-5Bh" secondAttribute="trailing" constant="-239.5" id="tCQ-2B-fLL"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="5Dy-IU-5Bh"/>
+                    </view>
                     <connections>
-                        <outlet property="scnView" destination="uJx-0m-5Wn" id="Qkm-qZ-6G9"/>
+                        <outlet property="roomNameInsertionField" destination="Ige-nD-d6L" id="9Sh-az-Wok"/>
+                        <outlet property="scnView" destination="OY4-Gg-MSt" id="KoU-2O-ahQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="84" y="33.733133433283363"/>
+            <point key="canvasLocation" x="83.208395802098963" y="32.799999999999997"/>
         </scene>
     </scenes>
 </document>

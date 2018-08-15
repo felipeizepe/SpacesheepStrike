@@ -8,7 +8,12 @@
 
 import SpriteKit
 
+//protocol MultipeerConnectivityServiceProtocol {
+//	func
+//}
+
 class LobbyOverlay: BaseOverlay {
+//	var roomName: String?
 	
 	override func checkedButtonPressed(button: SKCheckBoxButton) {
 		let action = SKAction.run {
@@ -37,10 +42,18 @@ class LobbyOverlay: BaseOverlay {
 	}
 	
 	func createRoom() {
-		
+		//Create an action to run after the button animation
+		print("Open the keyboard to enter de room name, and open the browsing of the room")
 	}
 	
 	func findRoom() {
-		
+		print("Open the availiable rooms")
 	}
+	
 }
+
+//extension LobbyOverlay: KeyboardResponseProtocol {
+//	func textFieldValue(text: String) {
+////		self.roomName = text
+//	}
+//}

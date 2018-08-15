@@ -58,22 +58,22 @@ class MultipeerConnectivityService: NSObject {
 			}
 		}
 	}
-	
-	func startAdvertising() {
-		self.serviceAdvertiser.startAdvertisingPeer()
-	}
-	
-	func stopAdvertising() {
-		self.serviceAdvertiser.stopAdvertisingPeer()
-	}
-	
-	func startBrowsing() {
-		self.serviceBrowser.startBrowsingForPeers()
-	}
-	
-	func stopBrowsing() {
-		self.serviceBrowser.stopBrowsingForPeers()
-	}
+//
+//	func startAdvertising() {
+//		self.serviceAdvertiser.startAdvertisingPeer()
+//	}
+//
+//	func stopAdvertising() {
+//		self.serviceAdvertiser.stopAdvertisingPeer()
+//	}
+//
+//	func startBrowsing() {
+//		self.serviceBrowser.startBrowsingForPeers()
+//	}
+//
+//	func stopBrowsing() {
+//		self.serviceBrowser.stopBrowsingForPeers()
+//	}
 }
 
 extension MultipeerConnectivityService: MCNearbyServiceAdvertiserDelegate {
