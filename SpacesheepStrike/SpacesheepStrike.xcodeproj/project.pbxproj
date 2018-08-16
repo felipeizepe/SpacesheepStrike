@@ -8,7 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		6A314ABF2118758D008B6A97 /* CoreMotionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A314ABE2118758D008B6A97 /* CoreMotionService.swift */; };
+		6A6A001A212593600009106C /* QuaternionExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A6A0018212593600009106C /* QuaternionExtension.swift */; };
+		6A6A001B212593600009106C /* DoubleExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A6A0019212593600009106C /* DoubleExtensions.swift */; };
+		6A6A001E212593810009106C /* ConnectionConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A6A001D212593810009106C /* ConnectionConstants.swift */; };
+		6A6A002121259D720009106C /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A6A002021259D720009106C /* Room.swift */; };
 		6A714CC32118929A00546FAA /* AnimationConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A714CC22118929A00546FAA /* AnimationConstants.swift */; };
+		6A84990C2124BC7D00AC1AC7 /* ConnectionHostService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A84990B2124BC7D00AC1AC7 /* ConnectionHostService.swift */; };
+		6A84990E2124BC9E00AC1AC7 /* ConnectionUserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A84990D2124BC9E00AC1AC7 /* ConnectionUserService.swift */; };
 		6A8FD6B521186EA100F7260B /* GameConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A8FD6B421186EA100F7260B /* GameConstants.swift */; };
 		6A9656652114CAE800DEB22C /* Spaceship.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A9656642114CAE800DEB22C /* Spaceship.swift */; };
 		6A9D4A4E2114801200DCF691 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A9D4A4D2114801200DCF691 /* AppDelegate.swift */; };
@@ -36,13 +42,17 @@
 		B0AE540A2124A5EF0089547E /* smoke.png in Resources */ = {isa = PBXBuildFile; fileRef = B0AE54062124A5EE0089547E /* smoke.png */; };
 		B0AE540B2124A5EF0089547E /* smokeTrail.scnp in Resources */ = {isa = PBXBuildFile; fileRef = B0AE54072124A5EE0089547E /* smokeTrail.scnp */; };
 		B0AE540C2124A5EF0089547E /* WindParticle.scnp in Resources */ = {isa = PBXBuildFile; fileRef = B0AE54082124A5EF0089547E /* WindParticle.scnp */; };
-		B0AE54162124A7300089547E /* QuaternionExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AE54142124A72F0089547E /* QuaternionExtension.swift */; };
-		B0AE54172124A7300089547E /* DoubleExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AE54152124A7300089547E /* DoubleExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		6A314ABE2118758D008B6A97 /* CoreMotionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreMotionService.swift; sourceTree = "<group>"; };
+		6A6A0018212593600009106C /* QuaternionExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuaternionExtension.swift; sourceTree = "<group>"; };
+		6A6A0019212593600009106C /* DoubleExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoubleExtensions.swift; sourceTree = "<group>"; };
+		6A6A001D212593810009106C /* ConnectionConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionConstants.swift; sourceTree = "<group>"; };
+		6A6A002021259D720009106C /* Room.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Room.swift; sourceTree = "<group>"; };
 		6A714CC22118929A00546FAA /* AnimationConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationConstants.swift; sourceTree = "<group>"; };
+		6A84990B2124BC7D00AC1AC7 /* ConnectionHostService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionHostService.swift; sourceTree = "<group>"; };
+		6A84990D2124BC9E00AC1AC7 /* ConnectionUserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionUserService.swift; sourceTree = "<group>"; };
 		6A8FD6B421186EA100F7260B /* GameConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameConstants.swift; sourceTree = "<group>"; };
 		6A9656642114CAE800DEB22C /* Spaceship.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spaceship.swift; sourceTree = "<group>"; };
 		6A9D4A4A2114801200DCF691 /* SpacesheepStrike.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpacesheepStrike.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -77,8 +87,6 @@
 		B0AE54062124A5EE0089547E /* smoke.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = smoke.png; sourceTree = "<group>"; };
 		B0AE54072124A5EE0089547E /* smokeTrail.scnp */ = {isa = PBXFileReference; lastKnownFileType = file.scp; path = smokeTrail.scnp; sourceTree = "<group>"; };
 		B0AE54082124A5EF0089547E /* WindParticle.scnp */ = {isa = PBXFileReference; lastKnownFileType = file.scp; path = WindParticle.scnp; sourceTree = "<group>"; };
-		B0AE54142124A72F0089547E /* QuaternionExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QuaternionExtension.swift; path = Extensions/QuaternionExtension.swift; sourceTree = "<group>"; };
-		B0AE54152124A7300089547E /* DoubleExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DoubleExtensions.swift; path = Extensions/DoubleExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,9 +106,28 @@
 				6AC0574C211B231A0043CE6E /* MultipeerConnectivityService.swift */,
 				6AC0574D211B231A0043CE6E /* ScenarioService.swift */,
 				6A314ABE2118758D008B6A97 /* CoreMotionService.swift */,
+				6A84990B2124BC7D00AC1AC7 /* ConnectionHostService.swift */,
+				6A84990D2124BC9E00AC1AC7 /* ConnectionUserService.swift */,
 			);
 			name = Services;
 			path = "New Group";
+			sourceTree = "<group>";
+		};
+		6A6A0017212593600009106C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				6A6A0018212593600009106C /* QuaternionExtension.swift */,
+				6A6A0019212593600009106C /* DoubleExtensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		6A6A001F21259D640009106C /* Connection */ = {
+			isa = PBXGroup;
+			children = (
+				6A6A002021259D720009106C /* Room.swift */,
+			);
+			path = Connection;
 			sourceTree = "<group>";
 		};
 		6A8FD6B321186E8B00F7260B /* Constants */ = {
@@ -109,6 +136,7 @@
 				6A8FD6B421186EA100F7260B /* GameConstants.swift */,
 				6A714CC22118929A00546FAA /* AnimationConstants.swift */,
 				6AB6A315211C6CB200EAF823 /* CollisionConstants.swift */,
+				6A6A001D212593810009106C /* ConnectionConstants.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -116,8 +144,7 @@
 		6A8FD6B621186ECE00F7260B /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				B0AE54152124A7300089547E /* DoubleExtensions.swift */,
-				B0AE54142124A72F0089547E /* QuaternionExtension.swift */,
+				6A6A0017212593600009106C /* Extensions */,
 				6A8FD6B321186E8B00F7260B /* Constants */,
 			);
 			path = Utils;
@@ -162,6 +189,7 @@
 		6A9D4A632114809100DCF691 /* Enties */ = {
 			isa = PBXGroup;
 			children = (
+				6A6A001F21259D640009106C /* Connection */,
 				6A9656642114CAE800DEB22C /* Spaceship.swift */,
 				6AB6A313211C6A2900EAF823 /* BulletNode.swift */,
 			);
@@ -338,22 +366,26 @@
 			buildActionMask = 2147483647;
 			files = (
 				6A714CC32118929A00546FAA /* AnimationConstants.swift in Sources */,
+				6A84990E2124BC9E00AC1AC7 /* ConnectionUserService.swift in Sources */,
 				B018F1C921226BBE00AE086F /* StartOverlay.swift in Sources */,
 				B018F1C1212214D800AE086F /* StartScene.swift in Sources */,
 				6AC0574F211B231A0043CE6E /* ScenarioService.swift in Sources */,
-				B0AE54172124A7300089547E /* DoubleExtensions.swift in Sources */,
+				6A84990C2124BC7D00AC1AC7 /* ConnectionHostService.swift in Sources */,
 				6A9656652114CAE800DEB22C /* Spaceship.swift in Sources */,
 				6A8FD6B521186EA100F7260B /* GameConstants.swift in Sources */,
 				6A9D4A522114801300DCF691 /* GameViewController.swift in Sources */,
 				6AB6A314211C6A2900EAF823 /* BulletNode.swift in Sources */,
 				6AC0574E211B231A0043CE6E /* MultipeerConnectivityService.swift in Sources */,
 				6AC05751211B23270043CE6E /* ShipViewController.swift in Sources */,
+				6A6A002121259D720009106C /* Room.swift in Sources */,
 				B018F1C52122241800AE086F /* BaseOverlay.swift in Sources */,
+				6A6A001E212593810009106C /* ConnectionConstants.swift in Sources */,
 				B018F1C72122277A00AE086F /* SKButton.swift in Sources */,
+				6A6A001B212593600009106C /* DoubleExtensions.swift in Sources */,
 				B0AE5403212311E40089547E /* LobbyOverlay.swift in Sources */,
 				B018F1C321221DCF00AE086F /* SKCheckBoxButton.swift in Sources */,
+				6A6A001A212593600009106C /* QuaternionExtension.swift in Sources */,
 				6AB6A316211C6CB200EAF823 /* CollisionConstants.swift in Sources */,
-				B0AE54162124A7300089547E /* QuaternionExtension.swift in Sources */,
 				6A314ABF2118758D008B6A97 /* CoreMotionService.swift in Sources */,
 				6A9D4A4E2114801200DCF691 /* AppDelegate.swift in Sources */,
 			);
@@ -502,7 +534,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = D6FBY3CTDY;
+				DEVELOPMENT_TEAM = WYJTXQ45H3;
 				INFOPLIST_FILE = SpacesheepStrike/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -520,7 +552,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = D6FBY3CTDY;
+				DEVELOPMENT_TEAM = WYJTXQ45H3;
 				INFOPLIST_FILE = SpacesheepStrike/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
