@@ -12,6 +12,12 @@ import UIKit
 class MenuViewController: UIViewController {
 	
 	
+	// MARK: Lifecycle Methods
+	override func viewDidLoad() {
+		
+	}
+	
+	// MARK: Action Outlets
 	@IBAction func findRoomAction(_ sender: Any) {
 		performSegue(withIdentifier: "searchSegue", sender: nil)
 	}

@@ -16,23 +16,20 @@ class RoomViewCell: UITableViewCell {
 	
 	override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
 		super.init(style: style, reuseIdentifier: reuseIdentifier)
-		self.setup()
 	}
 	
 	required init?(coder aDecoder: NSCoder) {
 		super.init(coder: aDecoder)
-		self.setup()
 	}
 	
-	func setup() {
-		guard Bundle.main.loadNibNamed("RoomViewCell", owner: self, options: nil)![0] is UIView else {
-			return
-		}
-	}
 	
 	func setupRoom(cellRoom room: Room){
 		self.room = room
 		self.nameLabel.text = room.name
+	}
+	
+	func setupPlayer( playerName: String) {
+		self.nameLabel.text = playerName
 	}
 	
 }

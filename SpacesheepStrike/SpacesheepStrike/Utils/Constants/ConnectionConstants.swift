@@ -12,8 +12,7 @@ import MultipeerConnectivity
 struct ConnectionConstants {
 	
 	
-	static let hostServiceTypeName = "host-stream"
-	static let userServiceTypename = "user-stream"
+	static let roomServiceTypeName = "room-stream"
 	static let roomNameIdentifier = "roomName"
 	static let peerID = MCPeerID(displayName: UIDevice.current.name + UIDevice.current.systemName)
 	static let connectionTimeOut: TimeInterval = 20

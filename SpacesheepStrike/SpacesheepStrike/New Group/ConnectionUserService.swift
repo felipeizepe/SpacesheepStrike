@@ -13,20 +13,17 @@ protocol RoomsSearchDelegate {
 	func updateRooms(rooms: [Room])
 }
 
-class ConnectionUserService: NSObject {
+class ConnectionUserService: ConnectionService {
 	
 	//MARK: Connectiom properties
-	private let MultipeerServiceType = ConnectionConstants.userServiceTypename
-	private let myPeerID = ConnectionConstants.peerID
+	private let MultipeerServiceType = ConnectionConstants.roomServiceTypeName
 	private var serviceBrowser: MCNearbyServiceBrowser!
-	private var session: MCSession!
 	
 	//MARK: other properties
 	static var shared: ConnectionUserService = ConnectionUserService()
 	var foundRooms: [Room] = [Room]()
 	
 	//Delegate
-	var roomStateDelegate: RoomStateDelegate?
 	var roomSearchDelegate: RoomsSearchDelegate?
 	
 	//MARK: Lifecycle Methods
@@ -61,10 +58,10 @@ extension ConnectionUserService: MCNearbyServiceBrowserDelegate {
 		
 		var room: Room
 		
-		if let nameInfo = info{
-			room = Room(peer: peerID, roomName: nameInfo[ConnectionConstants.roomNameIdentifier])
+		if let nameInfo = info {
+			room = Room(peer: peerID, roomName: nameInfo[ConnectionConstants.roomNameIdentifier], serviceType: self)
 		}else {
-			room = Room(peer: peerID, roomName: nil)
+			room = Room(peer: peerID, roomName: nil, serviceType: self)
 		}
 		
 		foundRooms.append(room)
@@ -81,31 +78,5 @@ extension ConnectionUserService: MCNearbyServiceBrowserDelegate {
 	
 	func browser(_ browser: MCNearbyServiceBrowser, didNotStartBrowsingForPeers error: Error) {
 		NSLog("%@", "didNotStartBrowsingForPeers: \(error)")
-	}
-}
-
-extension ConnectionUserService: MCSessionDelegate {
-	func session(_ session: MCSession, peer peerID: MCPeerID, didChange state: MCSessionState) {
-		NSLog("%@", "peer \(peerID) didChangeState: \(state.rawValue)")
-		if let delegate = roomStateDelegate {
-			delegate.roomStateChanged(connectedDevices: session.connectedPeers.map{$0.displayName})
-		}
-	}
-	
-	func session(_ session: MCSession, didReceive data: Data, fromPeer peerID: MCPeerID) {
-		NSLog("%@", "didReceiveData: \(data)")
-		//self.delegate?.motionChanged(manager: self, motion: receivedMotion)
-	}
-	
-	func session(_ session: MCSession, didReceive stream: InputStream, withName streamName: String, fromPeer peerID: MCPeerID) {
-		NSLog("%@", "didReceiveStream")
-	}
-	
-	func session(_ session: MCSession, didStartReceivingResourceWithName resourceName: String, fromPeer peerID: MCPeerID, with progress: Progress) {
-		NSLog("%@", "didStartReceivingResourceWithName")
-	}
-	
-	func session(_ session: MCSession, didFinishReceivingResourceWithName resourceName: String, fromPeer peerID: MCPeerID, at localURL: URL?, withError error: Error?) {
-		NSLog("%@", "didFinishReceivingResourceWithName")
 	}
 }

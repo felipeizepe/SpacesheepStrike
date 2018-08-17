@@ -16,12 +16,14 @@ class Room {
 	
 	var peerID: MCPeerID
 	var name: String?
+	var service: ConnectionService
 	
 	// MARK: lifecycle methods
 	
-	init(peer: MCPeerID, roomName: String?) {
+	init(peer: MCPeerID, roomName: String?, serviceType: ConnectionService) {
 		self.peerID = peer
 		self.name = roomName
+		self.service = serviceType
 	}
 	
 }

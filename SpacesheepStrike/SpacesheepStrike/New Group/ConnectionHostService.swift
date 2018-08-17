@@ -9,25 +9,16 @@
 import Foundation
 import MultipeerConnectivity
 
-protocol RoomStateDelegate {
-	func roomStateChanged(connectedDevices: [String])
-}
-
-class ConnectionHostService: NSObject {
+class ConnectionHostService: ConnectionService {
 	// Service type must be a unique string, at most 15 characters long
 	// and can contain only ASCII lowercase letters, numbers and hyphens.
 	//MARK: Connectiom properties
-	private let MultipeerServiceType = ConnectionConstants.hostServiceTypeName
-	private let myPeerID = ConnectionConstants.peerID
+	private let MultipeerServiceType = ConnectionConstants.roomServiceTypeName
 	private var serviceAdvertiser: MCNearbyServiceAdvertiser!
-	private var session: MCSession!
 	
 	//MARK: other properties
 	static var shared: ConnectionHostService = ConnectionHostService()
-	
-	
-	//Delegate
-	var roomStateDelegate: RoomStateDelegate?
+	var room: Room?
 	
 	//MARK: Lifecycle Methods
 	
@@ -44,6 +35,8 @@ class ConnectionHostService: NSObject {
 		self.serviceAdvertiser.delegate = self
 		self.session = MCSession(peer: myPeerID, securityIdentity: nil, encryptionPreference: .required)
 		self.session.delegate = self
+		self.room = Room(peer: self.myPeerID, roomName: named, serviceType: self)
+		
 		self.serviceAdvertiser.startAdvertisingPeer()
 	}
 	
@@ -71,28 +64,4 @@ extension ConnectionHostService: MCNearbyServiceAdvertiserDelegate {
 }
 
 
-extension ConnectionHostService: MCSessionDelegate {
-	func session(_ session: MCSession, peer peerID: MCPeerID, didChange state: MCSessionState) {
-		NSLog("%@", "peer \(peerID) didChangeState: \(state.rawValue)")
-		if let delegate = roomStateDelegate {
-			delegate.roomStateChanged(connectedDevices: session.connectedPeers.map{$0.displayName})
-		}
-	}
-	
-	func session(_ session: MCSession, didReceive data: Data, fromPeer peerID: MCPeerID) {
-		NSLog("%@", "didReceiveData: \(data)")
-		//self.delegate?.motionChanged(manager: self, motion: receivedMotion)
-	}
-	
-	func session(_ session: MCSession, didReceive stream: InputStream, withName streamName: String, fromPeer peerID: MCPeerID) {
-		NSLog("%@", "didReceiveStream")
-	}
-	
-	func session(_ session: MCSession, didStartReceivingResourceWithName resourceName: String, fromPeer peerID: MCPeerID, with progress: Progress) {
-		NSLog("%@", "didStartReceivingResourceWithName")
-	}
-	
-	func session(_ session: MCSession, didFinishReceivingResourceWithName resourceName: String, fromPeer peerID: MCPeerID, at localURL: URL?, withError error: Error?) {
-		NSLog("%@", "didFinishReceivingResourceWithName")
-	}
-}
+

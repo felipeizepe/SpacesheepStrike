@@ -29,8 +29,16 @@ class FindRoomViewController: UIViewController {
 	func setupScroll() {
 		roomsTableView.delegate = self
 		roomsTableView.dataSource = self
+		ConnectionUserService.shared.roomSearchDelegate = self
 		ConnectionUserService.shared.startSearch()
-		print("HI")
+	}
+	
+	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+		if let room = sender as? Room {
+			if let view = segue.destination as? RoomViewController {
+				view.room = room
+			}
+		}
 	}
 	
 }
@@ -71,6 +79,9 @@ extension FindRoomViewController: UITableViewDataSource {
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		// TODO: Connect to room
 		ConnectionUserService.shared.stopSearch()
+		let selectedRoom = receivedRooms[indexPath.row]
+		ConnectionUserService.shared.connectToRoom(room: selectedRoom)
+		performSegue(withIdentifier: "selectedRoomSegue", sender: selectedRoom)
 	}
 	
 }

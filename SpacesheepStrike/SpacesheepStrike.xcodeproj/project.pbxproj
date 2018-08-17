@@ -10,7 +10,6 @@
 		6A314ABF2118758D008B6A97 /* CoreMotionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A314ABE2118758D008B6A97 /* CoreMotionService.swift */; };
 		6A3778612125D47200940D4E /* LobbyStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A3778602125D47200940D4E /* LobbyStoryboard.storyboard */; };
 		6A3778642125D96B00940D4E /* FindRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A3778632125D96B00940D4E /* FindRoomViewController.swift */; };
-		6A3778672125DD0900940D4E /* RoomVIewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A3778662125DD0900940D4E /* RoomVIewCell.xib */; };
 		6A3778692125DD1500940D4E /* RoomViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A3778682125DD1500940D4E /* RoomViewCell.swift */; };
 		6A37786B2125E5FE00940D4E /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A37786A2125E5FE00940D4E /* MenuViewController.swift */; };
 		6A6A001A212593600009106C /* QuaternionExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A6A0018212593600009106C /* QuaternionExtension.swift */; };
@@ -20,6 +19,9 @@
 		6A714CC32118929A00546FAA /* AnimationConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A714CC22118929A00546FAA /* AnimationConstants.swift */; };
 		6A84990C2124BC7D00AC1AC7 /* ConnectionHostService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A84990B2124BC7D00AC1AC7 /* ConnectionHostService.swift */; };
 		6A84990E2124BC9E00AC1AC7 /* ConnectionUserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A84990D2124BC9E00AC1AC7 /* ConnectionUserService.swift */; };
+		6A8EE9BF2126F2BE00265A55 /* CreateRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A8EE9BE2126F2BE00265A55 /* CreateRoomViewController.swift */; };
+		6A8EE9C12126F73300265A55 /* RoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A8EE9C02126F73300265A55 /* RoomViewController.swift */; };
+		6A8EE9C32126FABB00265A55 /* ConnectionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A8EE9C22126FABB00265A55 /* ConnectionService.swift */; };
 		6A8FD6B521186EA100F7260B /* GameConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A8FD6B421186EA100F7260B /* GameConstants.swift */; };
 		6A9656652114CAE800DEB22C /* Spaceship.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A9656642114CAE800DEB22C /* Spaceship.swift */; };
 		6A9D4A4E2114801200DCF691 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A9D4A4D2114801200DCF691 /* AppDelegate.swift */; };
@@ -53,7 +55,6 @@
 		6A314ABE2118758D008B6A97 /* CoreMotionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreMotionService.swift; sourceTree = "<group>"; };
 		6A3778602125D47200940D4E /* LobbyStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LobbyStoryboard.storyboard; sourceTree = "<group>"; };
 		6A3778632125D96B00940D4E /* FindRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindRoomViewController.swift; sourceTree = "<group>"; };
-		6A3778662125DD0900940D4E /* RoomVIewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RoomVIewCell.xib; sourceTree = "<group>"; };
 		6A3778682125DD1500940D4E /* RoomViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomViewCell.swift; sourceTree = "<group>"; };
 		6A37786A2125E5FE00940D4E /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		6A6A0018212593600009106C /* QuaternionExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuaternionExtension.swift; sourceTree = "<group>"; };
@@ -63,6 +64,9 @@
 		6A714CC22118929A00546FAA /* AnimationConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationConstants.swift; sourceTree = "<group>"; };
 		6A84990B2124BC7D00AC1AC7 /* ConnectionHostService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionHostService.swift; sourceTree = "<group>"; };
 		6A84990D2124BC9E00AC1AC7 /* ConnectionUserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionUserService.swift; sourceTree = "<group>"; };
+		6A8EE9BE2126F2BE00265A55 /* CreateRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRoomViewController.swift; sourceTree = "<group>"; };
+		6A8EE9C02126F73300265A55 /* RoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomViewController.swift; sourceTree = "<group>"; };
+		6A8EE9C22126FABB00265A55 /* ConnectionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionService.swift; sourceTree = "<group>"; };
 		6A8FD6B421186EA100F7260B /* GameConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameConstants.swift; sourceTree = "<group>"; };
 		6A9656642114CAE800DEB22C /* Spaceship.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spaceship.swift; sourceTree = "<group>"; };
 		6A9D4A4A2114801200DCF691 /* SpacesheepStrike.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpacesheepStrike.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -118,6 +122,7 @@
 				6A314ABE2118758D008B6A97 /* CoreMotionService.swift */,
 				6A84990B2124BC7D00AC1AC7 /* ConnectionHostService.swift */,
 				6A84990D2124BC9E00AC1AC7 /* ConnectionUserService.swift */,
+				6A8EE9C22126FABB00265A55 /* ConnectionService.swift */,
 			);
 			name = Services;
 			path = "New Group";
@@ -128,6 +133,8 @@
 			children = (
 				6A3778632125D96B00940D4E /* FindRoomViewController.swift */,
 				6A37786A2125E5FE00940D4E /* MenuViewController.swift */,
+				6A8EE9BE2126F2BE00265A55 /* CreateRoomViewController.swift */,
+				6A8EE9C02126F73300265A55 /* RoomViewController.swift */,
 			);
 			path = Lobby;
 			sourceTree = "<group>";
@@ -135,7 +142,6 @@
 		6A3778652125DCEF00940D4E /* View */ = {
 			isa = PBXGroup;
 			children = (
-				6A3778662125DD0900940D4E /* RoomVIewCell.xib */,
 				6A3778682125DD1500940D4E /* RoomViewCell.swift */,
 			);
 			path = View;
@@ -379,7 +385,6 @@
 				B0AE54092124A5EF0089547E /* bokeh.png in Resources */,
 				B018F1BF21220FBD00AE086F /* StartScene.scn in Resources */,
 				6A9D4A572114801500DCF691 /* Assets.xcassets in Resources */,
-				6A3778672125DD0900940D4E /* RoomVIewCell.xib in Resources */,
 				B0AE540C2124A5EF0089547E /* WindParticle.scnp in Resources */,
 				6AAAD36A2121C9830066E622 /* LaserSparks.scnp in Resources */,
 				6AAAD36B2121C9830066E622 /* star.png in Resources */,
@@ -405,12 +410,14 @@
 				6A3778642125D96B00940D4E /* FindRoomViewController.swift in Sources */,
 				6AC0574F211B231A0043CE6E /* ScenarioService.swift in Sources */,
 				6A84990C2124BC7D00AC1AC7 /* ConnectionHostService.swift in Sources */,
+				6A8EE9C32126FABB00265A55 /* ConnectionService.swift in Sources */,
 				6A37786B2125E5FE00940D4E /* MenuViewController.swift in Sources */,
 				6A9656652114CAE800DEB22C /* Spaceship.swift in Sources */,
 				6A8FD6B521186EA100F7260B /* GameConstants.swift in Sources */,
 				6A9D4A522114801300DCF691 /* GameViewController.swift in Sources */,
 				6AB6A314211C6A2900EAF823 /* BulletNode.swift in Sources */,
 				6AC0574E211B231A0043CE6E /* MultipeerConnectivityService.swift in Sources */,
+				6A8EE9BF2126F2BE00265A55 /* CreateRoomViewController.swift in Sources */,
 				6AC05751211B23270043CE6E /* ShipViewController.swift in Sources */,
 				6A6A002121259D720009106C /* Room.swift in Sources */,
 				B018F1C52122241800AE086F /* BaseOverlay.swift in Sources */,
@@ -420,6 +427,7 @@
 				B0AE5403212311E40089547E /* LobbyOverlay.swift in Sources */,
 				B018F1C321221DCF00AE086F /* SKCheckBoxButton.swift in Sources */,
 				6A6A001A212593600009106C /* QuaternionExtension.swift in Sources */,
+				6A8EE9C12126F73300265A55 /* RoomViewController.swift in Sources */,
 				6AB6A316211C6CB200EAF823 /* CollisionConstants.swift in Sources */,
 				6A314ABF2118758D008B6A97 /* CoreMotionService.swift in Sources */,
 				6A9D4A4E2114801200DCF691 /* AppDelegate.swift in Sources */,
