@@ -45,7 +45,7 @@
                         <viewLayoutGuide key="safeArea" id="5Dy-IU-5Bh"/>
                     </view>
                     <connections>
-                        <outlet property="scnView" destination="OY4-Gg-MSt" id="KoU-2O-ahQ"/>
+                        <outlet property="scnView" destination="OY4-Gg-MSt" id="O1G-vl-S7u"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>

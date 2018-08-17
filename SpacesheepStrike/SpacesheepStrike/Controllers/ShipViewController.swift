@@ -29,7 +29,7 @@ class ShipViewController: UIViewController{
 		startScene = StartScene.init()
 		self.scnView.scene = startScene?.scene
 		// Set the start Overlay
-		self.setLobbyOverlay()
+		self.setStartOverlay()
 		// Create Gesture to press button
 		let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(tap:)))
 		self.view.addGestureRecognizer(tapGesture)

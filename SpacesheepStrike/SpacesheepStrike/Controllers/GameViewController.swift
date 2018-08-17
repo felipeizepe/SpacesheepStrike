@@ -23,6 +23,8 @@ class GameViewController: UIViewController {
 	var yaw: Float = 0
 	var enemy: SCNNode!
 	var ship: Spaceship!
+	var theta: Float? = 0
+	var omega: Float? = 0
 	
 	//MARK: Lifecycle mehtods
 	
@@ -34,7 +36,7 @@ class GameViewController: UIViewController {
 		let camera = scene.rootNode.childNode(withName: "camera", recursively: true)!
 		enemy = scene.rootNode.childNode(withName: "enemy", recursively: true)!
 		if let shipNode = scene.rootNode.childNode(withName: "ShipNode", recursively: true) {
-			ship = Spaceship(spaceshipNode: shipNode)
+			ship = Spaceship(spaceshipNode: shipNode, scene: scene)
 		} else {
 			print("ERRO - NAVE NÃO ENCONTRADA")
 			return
@@ -113,17 +115,16 @@ extension GameViewController: SCNSceneRendererDelegate {
 		if var deviceQuaternion = CoreMotionService.shared.deviceQuaternion{
 			deviceQuaternion.y -= GameConstants.phoneInitialInclination
 			deviceQuaternion.restrict(restrictionValue: GameConstants.rotationMax)
-			let scnQuaterion = SCNQuaternion(-deviceQuaternion.y * GameConstants.rotationFactor,
-																			 0,
-																			 -deviceQuaternion.x * GameConstants.rotationFactor,
-																			 deviceQuaternion.w * GameConstants.rotationFactor)
+			let scnQuaterion = SCNQuaternion(-deviceQuaternion.y * GameConstants.rotationFactor, 0, -deviceQuaternion.x * GameConstants.rotationFactor, deviceQuaternion.w * GameConstants.rotationFactor)
 			
-			ship.moveInRelation(toQuaternion: scnQuaterion)
+			ship.moveInRelation(toQuaternion: scnQuaterion, pitch: self.theta!, yaw: self.omega!)
 		}
 		
 		//Send information to opponent
 		if let att = CoreMotionService.shared.attitude {
-			//self.multipeerConnectivityService.send(motion: att)
+//			//self.multipeerConnectivityService.send(motion: att)
+			self.theta = Float(att.pitch / 10)
+			self.omega = Float(att.roll)
 		}
 	}
 }
@@ -161,14 +162,14 @@ extension GameViewController: SCNPhysicsContactDelegate {
 		// first, sort out what kind of collision
 		if (contactMask == (CollisionConstants.bulletCategoryMask | CollisionConstants.enemyCategoryMask)) {
 			let bullet: BulletNode?
-			let enemy: SCNNode?
+//			var enemy: SCNNode?
 			// next, sort out which body is the bullet and which is the ship
 			if (contact.nodeA.physicsBody?.categoryBitMask == CollisionConstants.bulletCategoryMask) {
 				bullet = contact.nodeA.parent as? BulletNode
-				enemy = contact.nodeB
+//				enemy = contact.nodeB
 			} else {
 				bullet = contact.nodeB.parent as? BulletNode
-				enemy = contact.nodeA
+//				enemy = contact.nodeA
 			}
 			//Removes bullet
 			removeNode(remove: bullet)
