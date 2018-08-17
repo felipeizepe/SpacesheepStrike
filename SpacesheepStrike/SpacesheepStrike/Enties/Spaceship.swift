@@ -61,7 +61,7 @@ class Spaceship {
 		}
 		
 		if let cameraNode = scene.rootNode.childNode(withName: "CameraRotationNode", recursively: true) {
-			cameraNode.constraints = [SCNReplicatorConstraint.init(target: self.shipMesh)]
+			cameraNode.constraints = [SCNDistanceConstraint.init(target: self.shipMesh), SCNLookAtConstraint.init(target: self.shipMesh)]
 		}
 		
 		self.currentDamage = 0
@@ -96,6 +96,12 @@ class Spaceship {
 			self.bodyNode.position.y = self.bodyNode.presentation.position.y + yaw * 10
 			self.shipMesh.eulerAngles.y = self.shipMesh.eulerAngles.y + pitch
 			self.shipMesh.eulerAngles.z = pitch * 50
+			let pos = self.bodyNode.presentation.position
+			if pos.y > 100 {
+				self.bodyNode.position.y = 100
+			} else if pos.y < -100 {
+				self.bodyNode.position.y = -100
+			}
 		}
 	}
 	

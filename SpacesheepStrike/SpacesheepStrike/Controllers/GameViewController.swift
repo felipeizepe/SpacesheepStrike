@@ -54,6 +54,7 @@ class GameViewController: UIViewController {
 		
 		// allows the user to manipulate the camera
 		scnView.allowsCameraControl = false
+		scnView.debugOptions = [SCNDebugOptions.showPhysicsShapes]
 		
 		// show statistics such as fps and timing information
 		scnView.showsStatistics = true
