@@ -17,7 +17,8 @@ class GameViewController: UIViewController {
 	@IBOutlet weak var dataLabel: UILabel!
 	@IBOutlet weak var sessionOwnerLabel: UILabel!
 	
-	let multipeerConnectivityService: MultipeerConnectivityService = MultipeerConnectivityService()
+	var multipeerConnectivityService: ConnectionService?
+	
 	var roll: Float = 0
 	var pitch: Float = 0
 	var yaw: Float = 0
@@ -64,6 +65,10 @@ class GameViewController: UIViewController {
 		scnView.backgroundColor = UIColor.white
 		
 		self.setupSound()
+		
+		if let service = multipeerConnectivityService {
+			service.gameDataDelegate = self
+		}
 	}
 	
 	//MARK: Outlets methods
@@ -76,7 +81,7 @@ class GameViewController: UIViewController {
 	
 	/// Start the services needed
 	func setupServices() {
-		self.multipeerConnectivityService.delegate = self
+		self.multipeerConnectivityService?.gameDataDelegate = self
 	}
 	
 	
@@ -123,23 +128,35 @@ extension GameViewController: SCNSceneRendererDelegate {
 		
 		//Send information to opponent
 		if let att = CoreMotionService.shared.attitude {
-			//self.multipeerConnectivityService.send(motion: att)
+			if let connection = self.multipeerConnectivityService {
+				connection.send(motion: att)
+			}
 		}
 	}
 }
 
-extension GameViewController: MultipeerConnectivityServicesDelegate {
-	func showNode() {
-		print("Show Node Function working")
+extension GameViewController: GameDataDelegate {
+	func receiveMotion(motion: CMAttitude?) {
+		if let quat = motion {
+			
+			let scnQuaterion = SCNQuaternion(-quat.quaternion.y * GameConstants.rotationFactor,
+																			 0,
+																			 -quat.quaternion.x * GameConstants.rotationFactor,
+																			 quat.quaternion.w * GameConstants.rotationFactor)
+			
+			let simd = simd_quatf(scnQuaterion)
+			enemy.simdOrientation = simd
+			
+		}
 	}
 	
-	func connectedDevicesChanged(manager: MultipeerConnectivityService, connectedDevices: [String]) {
+	func connectedDevicesChanged( connectedDevices: [String]) {
 		OperationQueue.main.addOperation {
 			self.sessionOwnerLabel.text = "Connections: \(connectedDevices)"
 		}
 	}
 	
-	func motionChanged(manager: MultipeerConnectivityService, motion: CMAttitude?) {
+	func motionChanged( motion: CMAttitude?) {
 		// TODO: Implement the filter for old messages to be ignored if their ∆t is too high
 		self.roll = Float(motion!.roll)
 		self.pitch = Float(motion!.pitch)

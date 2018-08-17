@@ -300,11 +300,21 @@
                     </view>
                     <connections>
                         <outlet property="playerTableView" destination="h8T-zf-87n" id="Wby-9X-CoT"/>
+                        <outlet property="startButton" destination="Y2j-Za-X9O" id="xWx-yr-Ujy"/>
+                        <segue destination="hxv-vi-pTQ" kind="show" identifier="gameStartSegue" id="Zo3-x7-gA8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qqF-Wu-lnf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2445" y="62"/>
+        </scene>
+        <!--Main-->
+        <scene sceneID="PeU-9r-Vz8">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main" id="hxv-vi-pTQ" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qxD-Rj-1Xy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3370" y="82"/>
         </scene>
     </scenes>
     <resources>

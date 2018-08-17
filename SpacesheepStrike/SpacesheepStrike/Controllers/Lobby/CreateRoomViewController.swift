@@ -50,9 +50,11 @@ class CreateRoomViewController: UIViewController {
 	
 	
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-		if let room = sender as? Room {
-			if let view = segue.destination as? RoomViewController {
-				view.room = room
+		if segue.identifier == "roomCreatedSegue" {
+			if let room = sender as? Room {
+				if let view = segue.destination as? RoomViewController {
+					view.room = room
+				}
 			}
 		}
 	}

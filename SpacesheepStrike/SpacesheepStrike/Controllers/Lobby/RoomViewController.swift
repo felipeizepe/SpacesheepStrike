@@ -12,10 +12,11 @@ import UIKit
 class RoomViewController: UIViewController {
 	
 	@IBOutlet weak var playerTableView: UITableView!
+	@IBOutlet weak var startButton: UIButton!
 	
 	// MARK: Properties
 	
-	var room: Room?
+	var room: Room!
 	var devices: [String] = [String]()
 	
 	
@@ -36,16 +37,36 @@ class RoomViewController: UIViewController {
 		}
 		
 	}
+	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+		if segue.identifier == "gameStartSegue" {
+			if let gameView = segue.destination as? GameViewController {
+				gameView.multipeerConnectivityService = self.room.service
+			}
+		}
+	}
 	
 	// MARK: Action Outlets
 	
 	@IBAction func startGame(_ sender: Any) {
+		self.launchGame()
+	}
+	
+	private func launchGame() {
+		DispatchQueue.main.async {
+			self.startButton.isEnabled = false
+			self.room.service.sendStartGameSignal()
+			self.performSegue(withIdentifier: "gameStartSegue", sender: nil)
+		}
 	}
 	
 }
 
 // MARK: Extension rooom state delegate
 extension RoomViewController: RoomStateDelegate {
+	func startGame() {
+		self.launchGame()
+	}
+	
 	func roomStateChanged(connectedDevices: [String]) {
 		self.devices = connectedDevices
 		DispatchQueue.main.async {

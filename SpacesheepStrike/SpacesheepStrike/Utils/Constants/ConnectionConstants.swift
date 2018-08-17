@@ -16,5 +16,6 @@ struct ConnectionConstants {
 	static let roomNameIdentifier = "roomName"
 	static let peerID = MCPeerID(displayName: UIDevice.current.name + UIDevice.current.systemName)
 	static let connectionTimeOut: TimeInterval = 20
+	static let startGameSignal = 1
 	
 }
