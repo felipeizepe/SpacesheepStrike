@@ -18,13 +18,15 @@ class GameViewController: UIViewController {
 	@IBOutlet weak var sessionOwnerLabel: UILabel!
 	
 	let multipeerConnectivityService: MultipeerConnectivityService = MultipeerConnectivityService()
-	var roll: Float = 0
-	var pitch: Float = 0
-	var yaw: Float = 0
+	var rollEnemy: Float = 0
+	var pitchEnemy: Float = 0
+	var yawEnemy: Float = 0
 	var enemy: SCNNode!
 	var ship: Spaceship!
-	var theta: Float? = 0
-	var omega: Float? = 0
+	
+	var pitch: Float? = 0
+	var roll: Float? = 0
+	var initialOrientation: (pitch: Float,roll: Float)?
 	
 	//MARK: Lifecycle mehtods
 	
@@ -67,14 +69,14 @@ class GameViewController: UIViewController {
 		scnView.backgroundColor = UIColor.white
 		
 		self.setupSound()
+		
 	}
 	
 	//MARK: Outlets methods
 	@objc
 	func handleTap(_ gestureRecognize: UIGestureRecognizer) {
-		if let bullet = ship.createProjectile() {
-			scnView.scene?.rootNode.addChildNode(bullet)
-		}
+		//Get the device initial position
+		self.resetOrientation()
 	}
 	
 	/// Start the services needed
@@ -117,15 +119,18 @@ extension GameViewController: SCNSceneRendererDelegate {
 			deviceQuaternion.y -= GameConstants.phoneInitialInclination
 			deviceQuaternion.restrict(restrictionValue: GameConstants.rotationMax)
 			let scnQuaterion = SCNQuaternion(-deviceQuaternion.y * GameConstants.rotationFactor, 0, -deviceQuaternion.x * GameConstants.rotationFactor, deviceQuaternion.w * GameConstants.rotationFactor)
-			
-			ship.moveInRelation(toQuaternion: scnQuaterion, pitch: self.theta!, yaw: self.omega!)
+			//Get the device initial position
+			if initialOrientation == nil {
+				self.resetOrientation()
+			}
+			ship.moveInRelation(toQuaternion: scnQuaterion, pitch: (self.pitch! - (initialOrientation?.pitch)!) / 10.0, yaw: (self.roll! - (initialOrientation?.roll)!) / 2)
 		}
 		
 		//Send information to opponent
 		if let att = CoreMotionService.shared.attitude {
 //			//self.multipeerConnectivityService.send(motion: att)
-			self.theta = Float(att.pitch / 10)
-			self.omega = Float(att.roll)
+			self.pitch = Float(att.pitch / 10)
+			self.roll = Float(att.roll)
 		}
 	}
 }
@@ -143,13 +148,20 @@ extension GameViewController: MultipeerConnectivityServicesDelegate {
 	
 	func motionChanged(manager: MultipeerConnectivityService, motion: CMAttitude?) {
 		// TODO: Implement the filter for old messages to be ignored if their ∆t is too high
-		self.roll = Float(motion!.roll)
-		self.pitch = Float(motion!.pitch)
-		self.yaw = Float(motion!.yaw)
+		self.rollEnemy = Float(motion!.roll)
+		self.pitchEnemy = Float(motion!.pitch)
+		self.yawEnemy = Float(motion!.yaw)
 		
 		// TODO: Interpolate values for better frame rate
 		OperationQueue.main.addOperation {
-			self.enemy.runAction(SCNAction.rotateTo(x: CGFloat(self.roll), y: CGFloat(self.pitch), z: CGFloat(self.yaw), duration: 1/60))
+			self.enemy.runAction(SCNAction.rotateTo(x: CGFloat(self.rollEnemy), y: CGFloat(self.pitchEnemy), z: CGFloat(self.yawEnemy), duration: 1/60))
+		}
+	}
+	
+	func resetOrientation() {
+		if let att = CoreMotionService.shared.attitude {
+			self.initialOrientation = (Float(att.pitch / 10), Float(att.roll))
+			print(self.initialOrientation)
 		}
 	}
 }

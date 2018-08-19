@@ -57,12 +57,19 @@ class Spaceship {
 		
 		if let cm = scene.rootNode.childNode(withName: "camera", recursively: true) {
 			self.camera = cm
-			camera.constraints = [SCNLookAtConstraint.init(target: self.shipMesh)]
+			let distanceConstraint = SCNDistanceConstraint.init(target: self.shipMesh)
+			distanceConstraint.minimumDistance = 38
+			distanceConstraint.maximumDistance = 40
+			let lookAtConstraint = SCNLookAtConstraint.init(target: self.shipMesh)
+			lookAtConstraint.isGimbalLockEnabled = true
+			camera.constraints = [distanceConstraint, lookAtConstraint]
 		}
 		
-		if let cameraNode = scene.rootNode.childNode(withName: "CameraRotationNode", recursively: true) {
-			cameraNode.constraints = [SCNDistanceConstraint.init(target: self.shipMesh), SCNLookAtConstraint.init(target: self.shipMesh)]
-		}
+//		if let cameraNode = scene.rootNode.childNode(withName: "CameraRotationNode", recursively: true) {
+//			cameraNode.constraints = [SCNReplicatorConstraint.init(target: self.shipMesh)]
+//			cameraNode.constraints = [SCNDistanceConstraint.init(target: self.shipMesh), SCNLookAtConstraint.init(target: self.shipMesh)]
+//			cameraNode.constraints = [SCNLookAtConstraint.init(target: self.shipMesh)]
+//		}
 		
 		self.currentDamage = 0
 		self.immune = false
@@ -82,9 +89,6 @@ class Spaceship {
 		let simq = simd_quatf(quet)
 		bodyNode.simdOrientation = simq * AnimationConstants.rotationAxis
 		if let pbody = node.physicsBody {
-//			let vel = SCNVector3Make(GameConstants.speedFactorX, GameConstants.speedFactorY, GameConstants.speedFactorZ)
-//			let directionQuat = simq.act(simd_make_float3(vel.x, vel.y, vel.z))
-//			let velocity = SCNVector3Make(directionQuat.x, directionQuat.y, abs(directionQuat.z))
 			let direction = self.shipVelocity
 			let yVector = SCNVector3Make(0, 1, 0)
 			let rotDirection = direction.escalarProduct(escalar: cos(pitch)) +
