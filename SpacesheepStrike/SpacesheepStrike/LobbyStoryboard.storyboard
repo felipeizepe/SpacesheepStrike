@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.3.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="3xg-7R-i5m">
+    <device id="retina4_7" orientation="landscape">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Menu View Controller-->
+        <scene sceneID="yW1-Jv-412">
+            <objects>
+                <viewController id="3xg-7R-i5m" customClass="MenuViewController" customModule="SpacesheepStrike" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Hxz-tr-lf4">
+                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="LobbyBackground" translatesAutoresizingMaskIntoConstraints="NO" id="GBP-hJ-7j2">
+                                <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LobbyFrame" translatesAutoresizingMaskIntoConstraints="NO" id="Vix-3Z-CwS">
+                                <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="LobbyTopGroupMenu" translatesAutoresizingMaskIntoConstraints="NO" id="ZAw-pv-DUV">
+                                <rect key="frame" x="0.0" y="82" width="291" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="LobbyDownGroupMenu" translatesAutoresizingMaskIntoConstraints="NO" id="pTy-rj-uM5">
+                                <rect key="frame" x="0.0" y="211" width="291" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2QH-Ii-26M">
+                                <rect key="frame" x="5" y="173" width="280" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="LobbyCreateRoomButton"/>
+                                <connections>
+                                    <action selector="createRoomAction:" destination="3xg-7R-i5m" eventType="touchUpInside" id="Mhf-YK-6lW"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aKB-nA-S0I">
+                                <rect key="frame" x="6" y="120" width="280" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="LobbyFindRoomButton"/>
+                                <connections>
+                                    <action selector="findRoomAction:" destination="3xg-7R-i5m" eventType="touchUpInside" id="WdS-gL-FIn"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.23529411759999999" blue="0.41568627450000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="Ntu-Vx-Cua" firstAttribute="trailing" secondItem="Vix-3Z-CwS" secondAttribute="trailing" id="2K1-mU-eUw"/>
+                            <constraint firstItem="Vix-3Z-CwS" firstAttribute="top" secondItem="Ntu-Vx-Cua" secondAttribute="top" id="Mfa-jd-R8F"/>
+                            <constraint firstItem="Ntu-Vx-Cua" firstAttribute="bottom" secondItem="Vix-3Z-CwS" secondAttribute="bottom" id="U4w-QQ-bzt"/>
+                            <constraint firstItem="Vix-3Z-CwS" firstAttribute="leading" secondItem="Ntu-Vx-Cua" secondAttribute="leading" id="hqf-LW-Ep9"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Ntu-Vx-Cua"/>
+                    </view>
+                    <connections>
+                        <segue destination="Clj-TZ-gQa" kind="show" identifier="searchSegue" id="Dqm-Ty-HCj"/>
+                        <segue destination="jbb-vG-y2N" kind="show" identifier="createSegue" id="a4H-cZ-19k"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GuH-10-CAd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="63.418290854572717" y="61.600000000000001"/>
+        </scene>
+        <!--Find Room View Controller-->
+        <scene sceneID="yb3-Jf-kKB">
+            <objects>
+                <viewController id="Clj-TZ-gQa" customClass="FindRoomViewController" customModule="SpacesheepStrike" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1RF-G3-n6U">
+                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LobbyBackground" translatesAutoresizingMaskIntoConstraints="NO" id="qct-Dy-4eE">
+                                <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LobbyFrame" translatesAutoresizingMaskIntoConstraints="NO" id="NVK-aa-vO2">
+                                <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="LobbyTopRoomGroupMenu" translatesAutoresizingMaskIntoConstraints="NO" id="ZtM-ba-1JY">
+                                <rect key="frame" x="161" y="68" width="486" height="49"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="Sek-iJ-RXo">
+                                <rect key="frame" x="161" y="113" width="486" height="186"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="RoomCell" id="mQv-xO-Mco" customClass="RoomViewCell" customModule="SpacesheepStrike" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="1" width="486" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mQv-xO-Mco" id="Jau-Em-1PN">
+                                            <rect key="frame" x="0.0" y="0.0" width="486" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LobbyInformationLabelBox" translatesAutoresizingMaskIntoConstraints="NO" id="tzJ-0b-uh6">
+                                                    <rect key="frame" x="0.0" y="2" width="486" height="41.5"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Room" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="23b-Yf-Ojt">
+                                                    <rect key="frame" x="30" y="12.5" width="426" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="tzJ-0b-uh6" secondAttribute="trailing" id="0rB-Ce-JfC"/>
+                                                <constraint firstItem="tzJ-0b-uh6" firstAttribute="leading" secondItem="Jau-Em-1PN" secondAttribute="leading" id="7kR-RX-3MS"/>
+                                                <constraint firstItem="23b-Yf-Ojt" firstAttribute="leading" secondItem="Jau-Em-1PN" secondAttribute="leadingMargin" constant="15" id="7u5-Zb-IpY"/>
+                                                <constraint firstItem="23b-Yf-Ojt" firstAttribute="bottom" secondItem="Jau-Em-1PN" secondAttribute="bottomMargin" id="9aQ-n5-itR"/>
+                                                <constraint firstItem="tzJ-0b-uh6" firstAttribute="leading" secondItem="Jau-Em-1PN" secondAttribute="leading" id="Exa-Z6-fVt"/>
+                                                <constraint firstAttribute="trailing" secondItem="tzJ-0b-uh6" secondAttribute="trailing" id="SVp-nB-za4"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="23b-Yf-Ojt" secondAttribute="trailing" constant="15" id="a9p-M8-617"/>
+                                                <constraint firstAttribute="bottom" secondItem="tzJ-0b-uh6" secondAttribute="bottom" id="ail-XS-8vs"/>
+                                                <constraint firstItem="23b-Yf-Ojt" firstAttribute="centerY" secondItem="tzJ-0b-uh6" secondAttribute="centerY" id="l0C-bj-Psx"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <outlet property="nameLabel" destination="23b-Yf-Ojt" id="v9q-J9-cel"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="LobbyDownGroupMenu" translatesAutoresizingMaskIntoConstraints="NO" id="lz9-lZ-YsG">
+                                <rect key="frame" x="161" y="294" width="486" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="NVK-aa-vO2" firstAttribute="leading" secondItem="TAI-Hr-Oga" secondAttribute="leading" id="9dA-jA-FMx"/>
+                            <constraint firstAttribute="bottom" secondItem="NVK-aa-vO2" secondAttribute="bottom" id="9mG-DT-0Js"/>
+                            <constraint firstItem="qct-Dy-4eE" firstAttribute="top" secondItem="TAI-Hr-Oga" secondAttribute="top" id="aPG-Qs-7Tn"/>
+                            <constraint firstItem="qct-Dy-4eE" firstAttribute="leading" secondItem="TAI-Hr-Oga" secondAttribute="leading" id="e92-Ur-jYg"/>
+                            <constraint firstItem="NVK-aa-vO2" firstAttribute="top" secondItem="TAI-Hr-Oga" secondAttribute="top" id="elK-fC-9Az"/>
+                            <constraint firstItem="qct-Dy-4eE" firstAttribute="trailing" secondItem="TAI-Hr-Oga" secondAttribute="trailing" id="gjb-Gt-qXx"/>
+                            <constraint firstItem="qct-Dy-4eE" firstAttribute="bottom" secondItem="TAI-Hr-Oga" secondAttribute="bottom" id="zBF-SK-Z9p"/>
+                            <constraint firstAttribute="trailing" secondItem="NVK-aa-vO2" secondAttribute="trailing" id="zO7-P5-mCY"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="TAI-Hr-Oga"/>
+                    </view>
+                    <connections>
+                        <outlet property="roomsTableView" destination="Sek-iJ-RXo" id="QQp-SR-Vrd"/>
+                        <segue destination="6lU-Pf-QEt" kind="show" identifier="selectedRoomSegue" id="fRR-Ap-mzT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0mF-bt-Iqb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1048" y="-927"/>
+        </scene>
+        <!--Create Room View Controller-->
+        <scene sceneID="Sgq-D4-hCD">
+            <objects>
+                <viewController id="jbb-vG-y2N" customClass="CreateRoomViewController" customModule="SpacesheepStrike" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="eYf-z5-asc">
+                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LobbyBackground" translatesAutoresizingMaskIntoConstraints="NO" id="hpR-vA-kiV">
+                                <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LobbyFrame" translatesAutoresizingMaskIntoConstraints="NO" id="mrI-cT-65u">
+                                <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="LobbyRoomNameFieldText" translatesAutoresizingMaskIntoConstraints="NO" id="9TQ-ml-HmA">
+                                <rect key="frame" x="40" y="90" width="587" height="46"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0sF-yW-fGs">
+                                <rect key="frame" x="285" y="98" width="332" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="alert" returnKeyType="go" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                                <connections>
+                                    <action selector="createRoom:" destination="jbb-vG-y2N" eventType="primaryActionTriggered" id="H22-JU-WM4"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fKZ-fh-mzG">
+                                <rect key="frame" x="347" y="239" width="280" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="LobbyCreateRoomButton"/>
+                                <connections>
+                                    <action selector="createRoom:" destination="jbb-vG-y2N" eventType="touchUpInside" id="jQL-gM-vnG"/>
+                                    <action selector="createRoomAction:" destination="3xg-7R-i5m" eventType="touchUpInside" id="GJj-w6-1p5"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="hpR-vA-kiV" firstAttribute="bottom" secondItem="Iru-5U-YN3" secondAttribute="bottom" id="5c7-aO-sMW"/>
+                            <constraint firstItem="hpR-vA-kiV" firstAttribute="leading" secondItem="Iru-5U-YN3" secondAttribute="leading" id="9bX-j1-o7w"/>
+                            <constraint firstItem="hpR-vA-kiV" firstAttribute="top" secondItem="Iru-5U-YN3" secondAttribute="top" id="DPN-cu-hpu"/>
+                            <constraint firstItem="mrI-cT-65u" firstAttribute="leading" secondItem="Iru-5U-YN3" secondAttribute="leading" id="JPh-mc-fiM"/>
+                            <constraint firstAttribute="trailing" secondItem="mrI-cT-65u" secondAttribute="trailing" id="Snb-cc-veX"/>
+                            <constraint firstItem="mrI-cT-65u" firstAttribute="top" secondItem="Iru-5U-YN3" secondAttribute="top" id="cXz-WE-uMl"/>
+                            <constraint firstItem="hpR-vA-kiV" firstAttribute="trailing" secondItem="Iru-5U-YN3" secondAttribute="trailing" id="fkq-f7-9tN"/>
+                            <constraint firstAttribute="bottom" secondItem="mrI-cT-65u" secondAttribute="bottom" id="znF-8R-KJL"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Iru-5U-YN3"/>
+                    </view>
+                    <connections>
+                        <outlet property="nameLabel" destination="0sF-yW-fGs" id="Zsg-js-yDq"/>
+                        <segue destination="6lU-Pf-QEt" kind="show" identifier="roomCreatedSegue" id="NRf-pU-CzP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wta-Gq-X77" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1037.6311844077961" y="544.79999999999995"/>
+        </scene>
+        <!--Room View Controller-->
+        <scene sceneID="rW2-yK-T5w">
+            <objects>
+                <viewController id="6lU-Pf-QEt" customClass="RoomViewController" customModule="SpacesheepStrike" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Kz6-3j-Ous">
+                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LobbyBackground" translatesAutoresizingMaskIntoConstraints="NO" id="fI2-PH-9Te">
+                                <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="LobbyTopRoomGroupMenu" translatesAutoresizingMaskIntoConstraints="NO" id="djv-Hr-y29">
+                                <rect key="frame" x="90" y="20" width="486" height="49"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="h8T-zf-87n">
+                                <rect key="frame" x="90" y="65" width="486" height="186"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="RoomCell" id="iVZ-ko-Uyd" customClass="RoomViewCell" customModule="SpacesheepStrike" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="1" width="486" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="iVZ-ko-Uyd" id="G3F-j0-WdT">
+                                            <rect key="frame" x="0.0" y="0.0" width="486" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LobbyInformationLabelBox" translatesAutoresizingMaskIntoConstraints="NO" id="e17-aL-GW9">
+                                                    <rect key="frame" x="0.0" y="0.0" width="486" height="43.5"/>
+                                                    <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W2N-zr-mwW">
+                                                    <rect key="frame" x="30" y="11.5" width="426" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstItem="e17-aL-GW9" firstAttribute="top" secondItem="G3F-j0-WdT" secondAttribute="top" id="7Sm-vw-LyN"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="W2N-zr-mwW" secondAttribute="trailing" constant="15" id="Hbj-On-cHe"/>
+                                                <constraint firstItem="W2N-zr-mwW" firstAttribute="leading" secondItem="G3F-j0-WdT" secondAttribute="leadingMargin" constant="15" id="i8Q-BR-ACu"/>
+                                                <constraint firstItem="W2N-zr-mwW" firstAttribute="centerY" secondItem="e17-aL-GW9" secondAttribute="centerY" id="iub-lo-WXd"/>
+                                                <constraint firstAttribute="trailing" secondItem="e17-aL-GW9" secondAttribute="trailing" id="oUS-Xw-GpD"/>
+                                                <constraint firstItem="e17-aL-GW9" firstAttribute="leading" secondItem="G3F-j0-WdT" secondAttribute="leading" id="uAv-ht-JNY"/>
+                                                <constraint firstAttribute="bottom" secondItem="e17-aL-GW9" secondAttribute="bottom" id="zRl-ZM-m5V"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <outlet property="nameLabel" destination="W2N-zr-mwW" id="GaY-7l-2mP"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="LobbyDownGroupMenu" translatesAutoresizingMaskIntoConstraints="NO" id="oeY-Z0-W0G">
+                                <rect key="frame" x="90" y="246" width="486" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y2j-Za-X9O">
+                                <rect key="frame" x="246" y="311" width="175" height="41"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="LobbyStartButtom"/>
+                                <connections>
+                                    <action selector="createRoomAction:" destination="3xg-7R-i5m" eventType="touchUpInside" id="4oJ-mc-ZRn"/>
+                                    <action selector="startGame:" destination="6lU-Pf-QEt" eventType="touchUpInside" id="tc4-0X-BHc"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="fI2-PH-9Te" firstAttribute="trailing" secondItem="c8N-hk-3af" secondAttribute="trailing" id="2dL-77-2JG"/>
+                            <constraint firstItem="fI2-PH-9Te" firstAttribute="bottom" secondItem="c8N-hk-3af" secondAttribute="bottom" id="Vua-bw-Q8M"/>
+                            <constraint firstItem="fI2-PH-9Te" firstAttribute="top" secondItem="c8N-hk-3af" secondAttribute="top" id="gho-mH-0bP"/>
+                            <constraint firstItem="fI2-PH-9Te" firstAttribute="leading" secondItem="c8N-hk-3af" secondAttribute="leading" id="luK-QR-jfC"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="c8N-hk-3af"/>
+                    </view>
+                    <connections>
+                        <outlet property="playerTableView" destination="h8T-zf-87n" id="Wby-9X-CoT"/>
+                        <outlet property="startButton" destination="Y2j-Za-X9O" id="xWx-yr-Ujy"/>
+                        <segue destination="hxv-vi-pTQ" kind="show" identifier="gameStartSegue" id="Zo3-x7-gA8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qqF-Wu-lnf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2445" y="62"/>
+        </scene>
+        <!--Main-->
+        <scene sceneID="PeU-9r-Vz8">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main" id="hxv-vi-pTQ" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qxD-Rj-1Xy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3370" y="82"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="LobbyBackground" width="667" height="375"/>
+        <image name="LobbyCreateRoomButton" width="280" height="48"/>
+        <image name="LobbyDownGroupMenu" width="284" height="43"/>
+        <image name="LobbyFindRoomButton" width="280" height="48"/>
+        <image name="LobbyFrame" width="667" height="375"/>
+        <image name="LobbyInformationLabelBox" width="267" height="41"/>
+        <image name="LobbyRoomNameFieldText" width="470" height="41"/>
+        <image name="LobbyStartButtom" width="175" height="41"/>
+        <image name="LobbyTopGroupMenu" width="284" height="43"/>
+        <image name="LobbyTopRoomGroupMenu" width="346" height="44"/>
+    </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="fRR-Ap-mzT"/>
+    </inferredMetricsTieBreakers>
+</document>
