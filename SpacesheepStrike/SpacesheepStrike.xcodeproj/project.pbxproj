@@ -35,7 +35,6 @@
 		6AAAD36B2121C9830066E622 /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AAAD3692121C9830066E622 /* star.png */; };
 		6AB6A314211C6A2900EAF823 /* BulletNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB6A313211C6A2900EAF823 /* BulletNode.swift */; };
 		6AB6A316211C6CB200EAF823 /* CollisionConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB6A315211C6CB200EAF823 /* CollisionConstants.swift */; };
-		6AC0574E211B231A0043CE6E /* MultipeerConnectivityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AC0574C211B231A0043CE6E /* MultipeerConnectivityService.swift */; };
 		6AC0574F211B231A0043CE6E /* ScenarioService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AC0574D211B231A0043CE6E /* ScenarioService.swift */; };
 		6AC05751211B23270043CE6E /* ShipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AC05750211B23270043CE6E /* ShipViewController.swift */; };
 		B018F1BF21220FBD00AE086F /* StartScene.scn in Resources */ = {isa = PBXBuildFile; fileRef = B018F1BE21220FBD00AE086F /* StartScene.scn */; };
@@ -82,7 +81,6 @@
 		6AAAD3692121C9830066E622 /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star.png; sourceTree = "<group>"; };
 		6AB6A313211C6A2900EAF823 /* BulletNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulletNode.swift; sourceTree = "<group>"; };
 		6AB6A315211C6CB200EAF823 /* CollisionConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollisionConstants.swift; sourceTree = "<group>"; };
-		6AC0574C211B231A0043CE6E /* MultipeerConnectivityService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MultipeerConnectivityService.swift; path = SpacesheepStrike/Services/MultipeerConnectivityService.swift; sourceTree = SOURCE_ROOT; };
 		6AC0574D211B231A0043CE6E /* ScenarioService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ScenarioService.swift; path = SpacesheepStrike/Services/ScenarioService.swift; sourceTree = SOURCE_ROOT; };
 		6AC05750211B23270043CE6E /* ShipViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShipViewController.swift; sourceTree = "<group>"; };
 		B018F1BE21220FBD00AE086F /* StartScene.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = StartScene.scn; sourceTree = "<group>"; };
@@ -117,7 +115,6 @@
 		6A314ABD2118756D008B6A97 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				6AC0574C211B231A0043CE6E /* MultipeerConnectivityService.swift */,
 				6AC0574D211B231A0043CE6E /* ScenarioService.swift */,
 				6A314ABE2118758D008B6A97 /* CoreMotionService.swift */,
 				6A84990B2124BC7D00AC1AC7 /* ConnectionHostService.swift */,
@@ -416,7 +413,6 @@
 				6A8FD6B521186EA100F7260B /* GameConstants.swift in Sources */,
 				6A9D4A522114801300DCF691 /* GameViewController.swift in Sources */,
 				6AB6A314211C6A2900EAF823 /* BulletNode.swift in Sources */,
-				6AC0574E211B231A0043CE6E /* MultipeerConnectivityService.swift in Sources */,
 				6A8EE9BF2126F2BE00265A55 /* CreateRoomViewController.swift in Sources */,
 				6AC05751211B23270043CE6E /* ShipViewController.swift in Sources */,
 				6A6A002121259D720009106C /* Room.swift in Sources */,
@@ -578,7 +574,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = WYJTXQ45H3;
+				DEVELOPMENT_TEAM = D6FBY3CTDY;
 				INFOPLIST_FILE = SpacesheepStrike/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -596,7 +592,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = WYJTXQ45H3;
+				DEVELOPMENT_TEAM = D6FBY3CTDY;
 				INFOPLIST_FILE = SpacesheepStrike/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

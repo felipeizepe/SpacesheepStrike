@@ -14,9 +14,9 @@ class RoomViewCell: UITableViewCell {
 	@IBOutlet weak var nameLabel: UILabel!
 	var room: Room?
 	
-	override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-		super.init(style: style, reuseIdentifier: reuseIdentifier)
-	}
+//	override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+//		super.init(style: style, reuseIdentifier: reuseIdentifier)
+//	}
 	
 	required init?(coder aDecoder: NSCoder) {
 		super.init(coder: aDecoder)

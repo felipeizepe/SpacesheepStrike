@@ -18,11 +18,9 @@ class GameViewController: UIViewController {
 	@IBOutlet weak var sessionOwnerLabel: UILabel!
 	
 	var multipeerConnectivityService: ConnectionService?
-	var rollEnemy: Float = 0
-	var pitchEnemy: Float = 0
-	var yawEnemy: Float = 0
 	var enemy: SCNNode!
 	var ship: Spaceship!
+	var shipMesh: SCNNode?
 	
 	var pitch: Float? = 0
 	var roll: Float? = 0
@@ -43,6 +41,12 @@ class GameViewController: UIViewController {
 			print("ERRO - NAVE NÃO ENCONTRADA")
 			return
 		}
+		// Get the node that represent the player
+		if let shipMesh = scene.rootNode.childNode(withName: "shipMesh", recursively: true) {
+			self.shipMesh = shipMesh
+		}
+		
+		
 		// retrieve the SCNView
 		let scenarioService = ScenarioService.init()
 		scenarioService.generateScenario(scene: scene, row: 20, column: 20)
@@ -68,7 +72,7 @@ class GameViewController: UIViewController {
 		// configure the view
 		scnView.backgroundColor = UIColor.white
 		
-		self.setupSound()
+//		self.setupSound()
 		
 		if let service = multipeerConnectivityService {
 			service.gameDataDelegate = self
@@ -134,25 +138,22 @@ extension GameViewController: SCNSceneRendererDelegate {
 //			//self.multipeerConnectivityService.send(motion: att)
 			self.pitch = Float(att.pitch / 10)
 			self.roll = Float(att.roll)
-			if let connection = self.multipeerConnectivityService {
-				//connection.send(motion: att)
-			}
+			multipeerConnectivityService?.send(myNode: (self.shipMesh?.presentation)!)
 		}
 	}
 }
 
 extension GameViewController: GameDataDelegate {
-	func receiveMotion(motion: CMAttitude?) {
-		if let quat = motion {
-			
-			let scnQuaterion = SCNQuaternion(-quat.quaternion.y * GameConstants.rotationFactor,
-																			 0,
-																			 -quat.quaternion.x * GameConstants.rotationFactor,
-																			 quat.quaternion.w * GameConstants.rotationFactor)
-			
-			let simd = simd_quatf(scnQuaterion)
-			enemy.simdOrientation = simd
-			
+	func motionChanged(myNode: SCNNode?) {
+		
+	}
+	
+	func receiveMotion(enemyNode: SCNNode?) {
+		if let enemyNode = enemyNode {
+			print(enemy.presentation.position)
+			enemy.position = enemyNode.position
+			enemy.eulerAngles = enemyNode.eulerAngles
+//			enemy.orientation = enemyNode.orientation
 		}
 	}
 	
@@ -162,22 +163,9 @@ extension GameViewController: GameDataDelegate {
 		}
 	}
 	
-	func motionChanged( motion: CMAttitude?) {
-		// TODO: Implement the filter for old messages to be ignored if their ∆t is too high
-		self.rollEnemy = Float(motion!.roll)
-		self.pitchEnemy = Float(motion!.pitch)
-		self.yawEnemy = Float(motion!.yaw)
-		
-		// TODO: Interpolate values for better frame rate
-		OperationQueue.main.addOperation {
-			self.enemy.runAction(SCNAction.rotateTo(x: CGFloat(self.rollEnemy), y: CGFloat(self.pitchEnemy), z: CGFloat(self.yawEnemy), duration: 1/60))
-		}
-	}
-	
 	func resetOrientation() {
 		if let att = CoreMotionService.shared.attitude {
 			self.initialOrientation = (Float(att.pitch / 10), Float(att.roll))
-			print(self.initialOrientation)
 		}
 	}
 }

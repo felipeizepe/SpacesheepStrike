@@ -8,7 +8,7 @@
 
 import Foundation
 import MultipeerConnectivity
-import CoreMotion
+import SceneKit
 
 
 protocol RoomStateDelegate {
@@ -17,9 +17,9 @@ protocol RoomStateDelegate {
 }
 
 protocol GameDataDelegate {
-	func receiveMotion(motion: CMAttitude?)
+	func receiveMotion(enemyNode: SCNNode?)
 	func connectedDevicesChanged( connectedDevices: [String])
-	func motionChanged( motion: CMAttitude?)
+	func motionChanged(myNode: SCNNode?)
 }
 
 class ConnectionService: NSObject {
@@ -37,12 +37,12 @@ class ConnectionService: NSObject {
 		return session.connectedPeers.map{$0.displayName}
 	}
 	
-	public func send(motion: CMAttitude) {
+	public func send(myNode: SCNNode) {
 		//		NSLog("%@", "to \(session.connectedPeers.count) peers")
 		
 		if session.connectedPeers.count > 0 {
 			do {
-				let data  = NSKeyedArchiver.archivedData(withRootObject: motion)
+				let data  = NSKeyedArchiver.archivedData(withRootObject: myNode)
 				try self.session.send(data, toPeers: session.connectedPeers, with: .reliable)
 			}
 			catch let error {
@@ -78,7 +78,6 @@ extension ConnectionService: MCSessionDelegate {
 	
 	func session(_ session: MCSession, didReceive data: Data, fromPeer peerID: MCPeerID) {
 		NSLog("%@", "didReceiveData: \(data)")
-		//self.delegate?.motionChanged(manager: self, motion: receivedMotion)
 		if !gameStarted {
 			if let startSignal = NSKeyedUnarchiver.unarchiveObject(with: data) as? Int? {
 				if let delegate = roomStateDelegate {
@@ -89,9 +88,9 @@ extension ConnectionService: MCSessionDelegate {
 				}
 			}
 		}else {
-			if let receivedMotion = NSKeyedUnarchiver.unarchiveObject(with: data) as? CMAttitude? {
+			if let enemyNode = NSKeyedUnarchiver.unarchiveObject(with: data) as? SCNNode? {
 				if let delegate = self.gameDataDelegate {
-					delegate.receiveMotion( motion: receivedMotion)
+					delegate.receiveMotion(enemyNode: enemyNode)
 				}
 			}
 		}
