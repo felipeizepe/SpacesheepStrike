@@ -16,6 +16,7 @@ class Spaceship {
 	var bodyNode: SCNNode!
 	var currentDamage: Int!
 	private var immune: Bool!
+	private(set) var dead = false
 	
 	//MARK: SoundEffect Nodes
 	var fireSound: SCNAudioSource!
@@ -52,6 +53,7 @@ class Spaceship {
 		
 		self.currentDamage = 0
 		self.immune = false
+		self.dead = false
 		
 		//MARK: sound setup
 		self.fireSound = SCNAudioSource(fileNamed: "art.scnassets/Sounds/LaserShot.wav")
@@ -119,7 +121,9 @@ class Spaceship {
 		if currentDamage >= GameConstants.shipLife  {
 			//GAME OVER
 			print("Game Over")
+			self.dead = true
 			//TODO: Game Over state change
+			
 		}else {
 			immune = true
 			DispatchQueue.main.asyncAfter(deadline: .now() + GameConstants.immunityTime, execute: {

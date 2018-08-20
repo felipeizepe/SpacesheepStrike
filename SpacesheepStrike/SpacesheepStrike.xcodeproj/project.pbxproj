@@ -23,6 +23,8 @@
 		6A8EE9C12126F73300265A55 /* RoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A8EE9C02126F73300265A55 /* RoomViewController.swift */; };
 		6A8EE9C32126FABB00265A55 /* ConnectionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A8EE9C22126FABB00265A55 /* ConnectionService.swift */; };
 		6A8FD6B521186EA100F7260B /* GameConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A8FD6B421186EA100F7260B /* GameConstants.swift */; };
+		6A921E43212B0863003DA5DF /* EndGameOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A921E42212B0863003DA5DF /* EndGameOverlay.swift */; };
+		6A921E45212B1469003DA5DF /* TransitionConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A921E44212B1469003DA5DF /* TransitionConstants.swift */; };
 		6A9656652114CAE800DEB22C /* Spaceship.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A9656642114CAE800DEB22C /* Spaceship.swift */; };
 		6A9D4A4E2114801200DCF691 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A9D4A4D2114801200DCF691 /* AppDelegate.swift */; };
 		6A9D4A502114801300DCF691 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 6A9D4A4F2114801300DCF691 /* art.scnassets */; };
@@ -38,6 +40,8 @@
 		6AC0574E211B231A0043CE6E /* MultipeerConnectivityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AC0574C211B231A0043CE6E /* MultipeerConnectivityService.swift */; };
 		6AC0574F211B231A0043CE6E /* ScenarioService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AC0574D211B231A0043CE6E /* ScenarioService.swift */; };
 		6AC05751211B23270043CE6E /* ShipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AC05750211B23270043CE6E /* ShipViewController.swift */; };
+		6ADE7CD2212B1BE5003233A1 /* EndGameOverlay.sks in Resources */ = {isa = PBXBuildFile; fileRef = B04747FC212117E500F46CFE /* EndGameOverlay.sks */; };
+		6ADE7CD3212B1BEA003233A1 /* EndGameOverlay.swift in Resources */ = {isa = PBXBuildFile; fileRef = 6A921E42212B0863003DA5DF /* EndGameOverlay.swift */; };
 		B018F1BF21220FBD00AE086F /* StartScene.scn in Resources */ = {isa = PBXBuildFile; fileRef = B018F1BE21220FBD00AE086F /* StartScene.scn */; };
 		B018F1C1212214D800AE086F /* StartScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B018F1C0212214D800AE086F /* StartScene.swift */; };
 		B018F1C321221DCF00AE086F /* SKCheckBoxButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B018F1C221221DCF00AE086F /* SKCheckBoxButton.swift */; };
@@ -68,6 +72,8 @@
 		6A8EE9C02126F73300265A55 /* RoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomViewController.swift; sourceTree = "<group>"; };
 		6A8EE9C22126FABB00265A55 /* ConnectionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionService.swift; sourceTree = "<group>"; };
 		6A8FD6B421186EA100F7260B /* GameConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameConstants.swift; sourceTree = "<group>"; };
+		6A921E42212B0863003DA5DF /* EndGameOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndGameOverlay.swift; sourceTree = "<group>"; };
+		6A921E44212B1469003DA5DF /* TransitionConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionConstants.swift; sourceTree = "<group>"; };
 		6A9656642114CAE800DEB22C /* Spaceship.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spaceship.swift; sourceTree = "<group>"; };
 		6A9D4A4A2114801200DCF691 /* SpacesheepStrike.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpacesheepStrike.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A9D4A4D2114801200DCF691 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -171,6 +177,7 @@
 				6A714CC22118929A00546FAA /* AnimationConstants.swift */,
 				6AB6A315211C6CB200EAF823 /* CollisionConstants.swift */,
 				6A6A001D212593810009106C /* ConnectionConstants.swift */,
+				6A921E44212B1469003DA5DF /* TransitionConstants.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -301,6 +308,7 @@
 				B018F1C42122241800AE086F /* BaseOverlay.swift */,
 				B018F1C821226BBE00AE086F /* StartOverlay.swift */,
 				B0AE5402212311E40089547E /* LobbyOverlay.swift */,
+				6A921E42212B0863003DA5DF /* EndGameOverlay.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -380,6 +388,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6ADE7CD3212B1BEA003233A1 /* EndGameOverlay.swift in Resources */,
+				6ADE7CD2212B1BE5003233A1 /* EndGameOverlay.sks in Resources */,
 				6A9D4A502114801300DCF691 /* art.scnassets in Resources */,
 				6A9D4A5A2114801500DCF691 /* LaunchScreen.storyboard in Resources */,
 				B0AE54092124A5EF0089547E /* bokeh.png in Resources */,
@@ -403,6 +413,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6A921E43212B0863003DA5DF /* EndGameOverlay.swift in Sources */,
 				6A714CC32118929A00546FAA /* AnimationConstants.swift in Sources */,
 				6A84990E2124BC9E00AC1AC7 /* ConnectionUserService.swift in Sources */,
 				B018F1C921226BBE00AE086F /* StartOverlay.swift in Sources */,
@@ -420,6 +431,7 @@
 				6A8EE9BF2126F2BE00265A55 /* CreateRoomViewController.swift in Sources */,
 				6AC05751211B23270043CE6E /* ShipViewController.swift in Sources */,
 				6A6A002121259D720009106C /* Room.swift in Sources */,
+				6A921E45212B1469003DA5DF /* TransitionConstants.swift in Sources */,
 				B018F1C52122241800AE086F /* BaseOverlay.swift in Sources */,
 				6A6A001E212593810009106C /* ConnectionConstants.swift in Sources */,
 				B018F1C72122277A00AE086F /* SKButton.swift in Sources */,

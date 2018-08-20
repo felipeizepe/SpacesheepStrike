@@ -13,7 +13,7 @@
         <!--Menu View Controller-->
         <scene sceneID="yW1-Jv-412">
             <objects>
-                <viewController id="3xg-7R-i5m" customClass="MenuViewController" customModule="SpacesheepStrike" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainMenu" id="3xg-7R-i5m" customClass="MenuViewController" customModule="SpacesheepStrike" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Hxz-tr-lf4">
                         <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -100,7 +100,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LobbyInformationLabelBox" translatesAutoresizingMaskIntoConstraints="NO" id="tzJ-0b-uh6">
-                                                    <rect key="frame" x="0.0" y="2" width="486" height="41.5"/>
+                                                    <rect key="frame" x="0.0" y="1.5" width="486" height="42.5"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Room" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="23b-Yf-Ojt">
                                                     <rect key="frame" x="30" y="12.5" width="426" height="20.5"/>
@@ -247,7 +247,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LobbyInformationLabelBox" translatesAutoresizingMaskIntoConstraints="NO" id="e17-aL-GW9">
-                                                    <rect key="frame" x="0.0" y="0.0" width="486" height="43.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="486" height="44"/>
                                                     <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W2N-zr-mwW">

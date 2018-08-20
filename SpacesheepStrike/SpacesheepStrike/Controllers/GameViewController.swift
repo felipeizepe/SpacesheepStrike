@@ -71,9 +71,43 @@ class GameViewController: UIViewController {
 		}
 	}
 	
+	func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
+		if ship.dead {
+			
+			
+			// if nodePath is nil, then it's not found in the bundle
+			if let nodePath = Bundle.main.path(forResource: "EndGameOverlay", ofType: "sks")
+			{
+				self.scnView.isPlaying = false
+				self.scnView.stop(nil)
+				let endGame = EndGameOverlay(fileNamed: "EndGameOverlay.sks")
+	
+				if let service = multipeerConnectivityService {
+					let playerName = service.myPeerID
+					let enemyName = service.getPlayersList()[1]
+					endGame?.isUserInteractionEnabled = false
+					endGame!.setupLabels(winner: enemyName, looser: playerName.displayName)
+					
+				}
+				
+				self.scnView.overlaySKScene = endGame
+				self.scnView.overlaySKScene!.isPaused = false
+			} else {
+				return
+			}
+			
+		}
+	}
+	
 	//MARK: Outlets methods
 	@objc
 	func handleTap(_ gestureRecognize: UIGestureRecognizer) {
+		if let overlay = self.scnView.overlaySKScene as? BaseOverlay {
+			overlay.tapReceived(location: gestureRecognize.location(in: self.scnView))
+			return
+		}
+		
+		
 		if let bullet = ship.createProjectile() {
 			scnView.scene?.rootNode.addChildNode(bullet)
 		}
