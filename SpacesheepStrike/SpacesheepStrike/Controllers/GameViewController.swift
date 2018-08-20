@@ -161,44 +161,27 @@ extension GameViewController: SCNSceneRendererDelegate {
 		}
 		
 		//Send information to opponent
-		if let att = CoreMotionService.shared.attitude {
 			if let connection = self.multipeerConnectivityService {
-				connection.send(motion: att)
+				let node = ship.node.presentation
+				connection.send(node: node.position)
+				print("ENviado: \(node.position)")
 			}
-		}
+		
 	}
 }
 
 extension GameViewController: GameDataDelegate {
-	func receiveMotion(motion: CMAttitude?) {
-		if let quat = motion {
-			
-			let scnQuaterion = SCNQuaternion(-quat.quaternion.y * GameConstants.rotationFactor,
-																			 0,
-																			 -quat.quaternion.x * GameConstants.rotationFactor,
-																			 quat.quaternion.w * GameConstants.rotationFactor)
-			
-			let simd = simd_quatf(scnQuaterion)
-			enemy.simdOrientation = simd
-			
+	func receiveMotion(node: SCNVector3?) {
+		OperationQueue.main.addOperation {
+			let moveAction = SCNAction.move(to: node!, duration: 1/60)
+			self.enemy.childNode(withName: "shipMesh", recursively: true)!.runAction(moveAction)
+			print(node!)
 		}
 	}
 	
 	func connectedDevicesChanged( connectedDevices: [String]) {
 		OperationQueue.main.addOperation {
 			self.sessionOwnerLabel.text = "Connections: \(connectedDevices)"
-		}
-	}
-	
-	func motionChanged( motion: CMAttitude?) {
-		// TODO: Implement the filter for old messages to be ignored if their ∆t is too high
-		self.roll = Float(motion!.roll)
-		self.pitch = Float(motion!.pitch)
-		self.yaw = Float(motion!.yaw)
-		
-		// TODO: Interpolate values for better frame rate
-		OperationQueue.main.addOperation {
-			self.enemy.runAction(SCNAction.rotateTo(x: CGFloat(self.roll), y: CGFloat(self.pitch), z: CGFloat(self.yaw), duration: 1/60))
 		}
 	}
 }

@@ -8,7 +8,7 @@
 
 import Foundation
 import MultipeerConnectivity
-import CoreMotion
+import SceneKit
 
 
 protocol RoomStateDelegate {
@@ -17,9 +17,8 @@ protocol RoomStateDelegate {
 }
 
 protocol GameDataDelegate {
-	func receiveMotion(motion: CMAttitude?)
+	func receiveMotion(node: SCNVector3?)
 	func connectedDevicesChanged( connectedDevices: [String])
-	func motionChanged( motion: CMAttitude?)
 }
 
 class ConnectionService: NSObject {
@@ -37,12 +36,12 @@ class ConnectionService: NSObject {
 		return session.connectedPeers.map{$0.displayName}
 	}
 	
-	public func send(motion: CMAttitude) {
+	public func send(node: SCNVector3) {
 		//		NSLog("%@", "to \(session.connectedPeers.count) peers")
 		
 		if session.connectedPeers.count > 0 {
 			do {
-				let data  = NSKeyedArchiver.archivedData(withRootObject: motion)
+				let data  = NSKeyedArchiver.archivedData(withRootObject: node)
 				try self.session.send(data, toPeers: session.connectedPeers, with: .reliable)
 			}
 			catch let error {
@@ -89,9 +88,9 @@ extension ConnectionService: MCSessionDelegate {
 				}
 			}
 		}else {
-			if let receivedMotion = NSKeyedUnarchiver.unarchiveObject(with: data) as? CMAttitude? {
+			if let receivedNode = NSKeyedUnarchiver.unarchiveObject(with: data) as? SCNVector3? {
 				if let delegate = self.gameDataDelegate {
-					delegate.receiveMotion( motion: receivedMotion)
+					delegate.receiveMotion(node: receivedNode)
 				}
 			}
 		}
