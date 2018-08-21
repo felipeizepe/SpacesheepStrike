@@ -34,7 +34,7 @@ class EndGameOverlay: BaseOverlay {
 			label.text = looser
 		}
 		
-		let button = self.childNode(withName: "LeaveButton") as! SKSpriteNode
+		let button = self.childNode(withName: "LeaveButton") as! SKButton
 		button.isUserInteractionEnabled = true
 		
 	}

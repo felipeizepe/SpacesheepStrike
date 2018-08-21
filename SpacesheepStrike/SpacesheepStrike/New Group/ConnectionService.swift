@@ -70,6 +70,9 @@ class ConnectionService: NSObject {
 		return self.isConnected
 	}
 	
+	public func disconnectFromSession() {
+		self.session.disconnect()
+	}
 }
 
 extension ConnectionService: MCSessionDelegate {

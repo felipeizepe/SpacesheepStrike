@@ -25,6 +25,7 @@ class GameViewController: UIViewController {
 	var enemy: SCNNode!
 	var ship: Spaceship!
 	var playerList: [String] = [String]()
+	var gameOver = false
 	
 	//MARK: Lifecycle mehtods
 	
@@ -81,7 +82,7 @@ class GameViewController: UIViewController {
 			connected = service.isConnectionActive()
 		}
 		
-		if ship.dead || !connected {
+		if (ship.dead || !connected) && !gameOver {
 			self.endGame()
 		}
 	}
@@ -117,7 +118,7 @@ class GameViewController: UIViewController {
 	}
 	
 	fileprivate func endGame() {
-		
+		self.gameOver = true
 		// if nodePath is nil, then it's not found in the bundle
 		if Bundle.main.path(forResource: "EndGameOverlay", ofType: "sks") != nil
 		{
@@ -130,7 +131,8 @@ class GameViewController: UIViewController {
 				let enemyName = playerList[0]
 				endGame?.isUserInteractionEnabled = false
 				endGame!.setupLabels(winner: enemyName, looser: playerName.displayName)
-				
+				service.disconnectFromSession()
+				self.multipeerConnectivityService = nil
 			}
 			
 			self.scnView.overlaySKScene = endGame
@@ -178,7 +180,6 @@ extension GameViewController: SCNSceneRendererDelegate {
 			if let connection = self.multipeerConnectivityService {
 				let node = ship.node.presentation
 				connection.send(node: node.position)
-				print("ENviado: \(node.position)")
 			}
 		
 	}
