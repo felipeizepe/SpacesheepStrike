@@ -25,7 +25,7 @@ class ConnectionService: NSObject {
 	
 	internal let myPeerID = ConnectionConstants.peerID
 	internal var session: MCSession!
-	
+	private var isConnected = false
 	private var gameStarted = false
 	
 	//Delegate
@@ -58,6 +58,7 @@ class ConnectionService: NSObject {
 				let data  = NSKeyedArchiver.archivedData(withRootObject: ConnectionConstants.startGameSignal)
 				try self.session.send(data, toPeers: session.connectedPeers, with: .reliable)
 				self.gameStarted = true
+				self.isConnected = true
 			}
 			catch let error {
 				NSLog("%@", "Error for sending: \(error)")
@@ -65,11 +66,22 @@ class ConnectionService: NSObject {
 		}
 	}
 	
+	public func isConnectionActive() -> Bool {
+		return self.isConnected
+	}
+	
 }
 
 extension ConnectionService: MCSessionDelegate {
 	func session(_ session: MCSession, peer peerID: MCPeerID, didChange state: MCSessionState) {
 		NSLog("%@", "peer \(peerID) didChangeState: \(state.rawValue)")
+		
+		if state == .notConnected {
+			self.isConnected = false
+		}else if state == .connected {
+			self.isConnected = true
+		}
+		
 		if let delegate = roomStateDelegate {
 			delegate.roomStateChanged(connectedDevices: session.connectedPeers.map{$0.displayName})
 		}

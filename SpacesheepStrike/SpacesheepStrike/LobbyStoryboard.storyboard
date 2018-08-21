@@ -60,8 +60,8 @@
                         <viewLayoutGuide key="safeArea" id="Ntu-Vx-Cua"/>
                     </view>
                     <connections>
-                        <segue destination="Clj-TZ-gQa" kind="show" identifier="searchSegue" id="Dqm-Ty-HCj"/>
-                        <segue destination="jbb-vG-y2N" kind="show" identifier="createSegue" id="a4H-cZ-19k"/>
+                        <segue destination="Clj-TZ-gQa" kind="showDetail" identifier="searchSegue" id="Dqm-Ty-HCj"/>
+                        <segue destination="jbb-vG-y2N" kind="showDetail" identifier="createSegue" id="a4H-cZ-19k"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GuH-10-CAd" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -133,6 +133,17 @@
                                 <rect key="frame" x="161" y="294" width="486" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TQs-nR-i5Z">
+                                <rect key="frame" x="8" y="288" width="123" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="LobbyBackButton"/>
+                                <connections>
+                                    <action selector="backPressed:" destination="Clj-TZ-gQa" eventType="touchUpInside" id="qnJ-5O-g8f"/>
+                                    <action selector="createRoomAction:" destination="3xg-7R-i5m" eventType="touchUpInside" id="ANR-Fa-QzH"/>
+                                    <action selector="startGame:" destination="6lU-Pf-QEt" eventType="touchUpInside" id="aHT-BZ-c4n"/>
+                                    <segue destination="3xg-7R-i5m" kind="showDetail" id="uo4-Zr-uId"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -149,12 +160,12 @@
                     </view>
                     <connections>
                         <outlet property="roomsTableView" destination="Sek-iJ-RXo" id="QQp-SR-Vrd"/>
-                        <segue destination="6lU-Pf-QEt" kind="show" identifier="selectedRoomSegue" id="fRR-Ap-mzT"/>
+                        <segue destination="6lU-Pf-QEt" kind="showDetail" identifier="selectedRoomSegue" id="fRR-Ap-mzT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0mF-bt-Iqb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1048" y="-927"/>
+            <point key="canvasLocation" x="1047.5262368815593" y="-927.20000000000005"/>
         </scene>
         <!--Create Room View Controller-->
         <scene sceneID="Sgq-D4-hCD">
@@ -195,6 +206,16 @@
                                     <action selector="createRoomAction:" destination="3xg-7R-i5m" eventType="touchUpInside" id="GJj-w6-1p5"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ifg-q9-lc5">
+                                <rect key="frame" x="20" y="288" width="123" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="LobbyBackButton"/>
+                                <connections>
+                                    <action selector="createRoomAction:" destination="3xg-7R-i5m" eventType="touchUpInside" id="ZGF-am-GFe"/>
+                                    <action selector="startGame:" destination="6lU-Pf-QEt" eventType="touchUpInside" id="NU3-fw-GhR"/>
+                                    <segue destination="3xg-7R-i5m" kind="showDetail" id="8UO-fe-pe4"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -211,7 +232,7 @@
                     </view>
                     <connections>
                         <outlet property="nameLabel" destination="0sF-yW-fGs" id="Zsg-js-yDq"/>
-                        <segue destination="6lU-Pf-QEt" kind="show" identifier="roomCreatedSegue" id="NRf-pU-CzP"/>
+                        <segue destination="6lU-Pf-QEt" kind="showDetail" identifier="roomCreatedSegue" id="NRf-pU-CzP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wta-Gq-X77" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -318,6 +339,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="LobbyBackButton" width="175" height="41"/>
         <image name="LobbyBackground" width="667" height="375"/>
         <image name="LobbyCreateRoomButton" width="280" height="48"/>
         <image name="LobbyDownGroupMenu" width="284" height="43"/>
@@ -330,6 +352,7 @@
         <image name="LobbyTopRoomGroupMenu" width="346" height="44"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="fRR-Ap-mzT"/>
+        <segue reference="NRf-pU-CzP"/>
+        <segue reference="8UO-fe-pe4"/>
     </inferredMetricsTieBreakers>
 </document>

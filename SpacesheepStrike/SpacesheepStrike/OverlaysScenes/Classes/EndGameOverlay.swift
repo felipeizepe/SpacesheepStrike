@@ -23,15 +23,20 @@ class EndGameOverlay: BaseOverlay {
 	}
 	
 	func setupLabels(winner: String, looser: String) {
-		let winnerName = self.childNode(withName: "WinnerNameLabel") as! SKLabelNode
-		winnerName.text = winner
 		
-		let looserName = self.childNode(withName: "LostNameLabel") as! SKLabelNode
-		looserName.text = looser
+		self.enumerateChildNodes(withName: "WinnerNameLabel") { (node: SKNode, nil) in
+			let label = node as! SKLabelNode
+			label.text = winner
+		}
 		
+		self.enumerateChildNodes(withName: "LostNameLabel") { (node: SKNode, nil) in
+			let label = node as! SKLabelNode
+			label.text = looser
+		}
 		
 		let button = self.childNode(withName: "LeaveButton") as! SKSpriteNode
 		button.isUserInteractionEnabled = true
+		
 	}
 	
 }

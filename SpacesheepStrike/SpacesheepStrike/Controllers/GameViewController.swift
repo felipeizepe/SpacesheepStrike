@@ -24,6 +24,7 @@ class GameViewController: UIViewController {
 	var yaw: Float = 0
 	var enemy: SCNNode!
 	var ship: Spaceship!
+	var playerList: [String] = [String]()
 	
 	//MARK: Lifecycle mehtods
 	
@@ -68,34 +69,20 @@ class GameViewController: UIViewController {
 		
 		if let service = multipeerConnectivityService {
 			service.gameDataDelegate = self
+			self.playerList = service.getPlayersList()
 		}
 	}
 	
 	func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
-		if ship.dead {
-			
-			
-			// if nodePath is nil, then it's not found in the bundle
-			if let nodePath = Bundle.main.path(forResource: "EndGameOverlay", ofType: "sks")
-			{
-				self.scnView.isPlaying = false
-				self.scnView.stop(nil)
-				let endGame = EndGameOverlay(fileNamed: "EndGameOverlay.sks")
-	
-				if let service = multipeerConnectivityService {
-					let playerName = service.myPeerID
-					let enemyName = service.getPlayersList()[1]
-					endGame?.isUserInteractionEnabled = false
-					endGame!.setupLabels(winner: enemyName, looser: playerName.displayName)
-					
-				}
-				
-				self.scnView.overlaySKScene = endGame
-				self.scnView.overlaySKScene!.isPaused = false
-			} else {
-				return
-			}
-			
+		
+		var connected = true
+		
+		if let service = multipeerConnectivityService {
+			connected = service.isConnectionActive()
+		}
+		
+		if ship.dead || !connected {
+			self.endGame()
 		}
 	}
 	
@@ -113,6 +100,8 @@ class GameViewController: UIViewController {
 		}
 	}
 	
+	// MARK: Auxiliary Functions
+	
 	/// Start the services needed
 	func setupServices() {
 		self.multipeerConnectivityService?.gameDataDelegate = self
@@ -123,6 +112,31 @@ class GameViewController: UIViewController {
 	func setupSound() {
 		if let music = SCNAudioSource(fileNamed: "art.scnassets/Music/Motherlode.mp3") {
 			self.scnView.scene!.rootNode.runAction(SCNAction.repeatForever(SCNAction.playAudio(music, waitForCompletion: true)))
+		}
+		
+	}
+	
+	fileprivate func endGame() {
+		
+		// if nodePath is nil, then it's not found in the bundle
+		if Bundle.main.path(forResource: "EndGameOverlay", ofType: "sks") != nil
+		{
+			self.scnView.isPlaying = false
+			self.scnView.stop(nil)
+			let endGame = EndGameOverlay(fileNamed: "EndGameOverlay.sks")
+			
+			if let service = multipeerConnectivityService {
+				let playerName = service.myPeerID
+				let enemyName = playerList[0]
+				endGame?.isUserInteractionEnabled = false
+				endGame!.setupLabels(winner: enemyName, looser: playerName.displayName)
+				
+			}
+			
+			self.scnView.overlaySKScene = endGame
+			self.scnView.overlaySKScene!.isPaused = false
+		} else {
+			return
 		}
 		
 	}

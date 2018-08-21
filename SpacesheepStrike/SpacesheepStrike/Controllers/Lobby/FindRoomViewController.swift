@@ -43,6 +43,11 @@ class FindRoomViewController: UIViewController {
 		}
 	}
 	
+	@IBAction func backPressed(_ sender: Any) {
+		ConnectionUserService.shared.stopSearch()
+	}
+	
+	
 }
 
 // MARK: Room search delegate extension
