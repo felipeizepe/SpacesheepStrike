@@ -74,6 +74,13 @@ class GameViewController: UIViewController {
 		}
 	}
 	
+	deinit {
+		if let service = multipeerConnectivityService {
+			service.disconnectFromSession()
+			multipeerConnectivityService = nil
+		}
+	}
+	
 	func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
 		
 		var connected = true
@@ -125,7 +132,7 @@ class GameViewController: UIViewController {
 			self.scnView.isPlaying = false
 			self.scnView.stop(nil)
 			let endGame = EndGameOverlay(fileNamed: "EndGameOverlay.sks")
-			
+			endGame?.gameViewController = self
 			if let service = multipeerConnectivityService {
 				let playerName = service.myPeerID
 				let enemyName = playerList[0]
@@ -190,7 +197,6 @@ extension GameViewController: GameDataDelegate {
 		OperationQueue.main.addOperation {
 			let moveAction = SCNAction.move(to: node!, duration: 1/60)
 			self.enemy.childNode(withName: "shipMesh", recursively: true)!.runAction(moveAction)
-			print(node!)
 		}
 	}
 	

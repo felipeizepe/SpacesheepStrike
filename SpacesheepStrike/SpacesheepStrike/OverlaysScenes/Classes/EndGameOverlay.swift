@@ -17,7 +17,8 @@ class EndGameOverlay: BaseOverlay {
 			guard let lobby = lobbyStoryboard.instantiateViewController(withIdentifier: TransitionConstants.menuViewControllerID) as? MenuViewController else {
 				return
 			}
-			gameView.window?.rootViewController?.show(lobby, sender: nil)
+			
+			self.gameViewController?.performSegue(withIdentifier: "ReturnToMenu", sender: nil)
 			
 		}
 	}

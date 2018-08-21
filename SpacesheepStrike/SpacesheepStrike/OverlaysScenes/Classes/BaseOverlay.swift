@@ -18,6 +18,7 @@ protocol OverlayProtocol {
 
 class BaseOverlay: SKScene {
 	public var overlayDelegate: OverlayProtocol?
+	weak var gameViewController: UIViewController?
 	
 	func tapReceived(location: CGPoint){
 		let convertedLocation = self.convertPoint(fromView: location)

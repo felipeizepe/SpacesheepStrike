@@ -92,7 +92,7 @@
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="RoomCell" id="mQv-xO-Mco" customClass="RoomViewCell" customModule="SpacesheepStrike" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="RoomCell" id="mQv-xO-Mco" customClass="RoomViewCell" customModule="SpacesheepStrike" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="1" width="486" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mQv-xO-Mco" id="Jau-Em-1PN">
@@ -352,7 +352,7 @@
         <image name="LobbyTopRoomGroupMenu" width="346" height="44"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="NRf-pU-CzP"/>
-        <segue reference="8UO-fe-pe4"/>
+        <segue reference="fRR-Ap-mzT"/>
+        <segue reference="uo4-Zr-uId"/>
     </inferredMetricsTieBreakers>
 </document>

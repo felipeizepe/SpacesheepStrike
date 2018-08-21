@@ -38,6 +38,7 @@ class ConnectionUserService: ConnectionService {
 		self.serviceBrowser.delegate = self
 		self.session = MCSession(peer: myPeerID, securityIdentity: nil, encryptionPreference: .required)
 		self.session.delegate = self
+		self.foundRooms = [Room]()
 		self.serviceBrowser.startBrowsingForPeers()
 	}
 	

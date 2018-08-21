@@ -33,11 +33,20 @@
                     </view>
                     <connections>
                         <outlet property="scnView" destination="OY4-Gg-MSt" id="KoU-2O-ahQ"/>
+                        <segue destination="G3J-ec-mBx" kind="showDetail" identifier="ReturnToMenu" id="5Pu-SB-w5m"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="83.208395802098963" y="32.799999999999997"/>
+        </scene>
+        <!--LobbyStoryboard-->
+        <scene sceneID="GvP-TW-FCv">
+            <objects>
+                <viewControllerPlaceholder storyboardName="LobbyStoryboard" id="G3J-ec-mBx" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Dyv-kb-Tw0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1040" y="17"/>
         </scene>
     </scenes>
 </document>
