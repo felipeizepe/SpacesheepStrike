@@ -48,13 +48,13 @@ class RoomViewController: UIViewController {
 	// MARK: Action Outlets
 	
 	@IBAction func startGame(_ sender: Any) {
-		self.launchGame()
+			self.startButton.isEnabled = false
+			self.room.service.startGame()
 	}
 	
 	private func launchGame() {
 		DispatchQueue.main.async {
 			self.startButton.isEnabled = false
-			self.room.service.sendStartGameSignal()
 			self.performSegue(withIdentifier: "gameStartSegue", sender: nil)
 		}
 	}

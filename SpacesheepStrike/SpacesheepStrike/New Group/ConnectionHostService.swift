@@ -40,13 +40,13 @@ class ConnectionHostService: ConnectionService {
 		self.serviceAdvertiser.startAdvertisingPeer()
 	}
 	
-	func startGame() {
-		self.serviceAdvertiser.stopAdvertisingPeer()
-		// TODO: start game here
-	}
-	
 	func cancelHost() {
 		self.serviceAdvertiser.stopAdvertisingPeer()
+	}
+	
+	override func startGame() {
+		self.serviceAdvertiser.stopAdvertisingPeer()
+		super.startGame()
 	}
 	
 }

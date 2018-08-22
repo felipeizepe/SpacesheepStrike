@@ -8,6 +8,7 @@
 
 import Foundation
 import MultipeerConnectivity
+import NetworkExtension
 import SceneKit
 
 
@@ -27,6 +28,10 @@ class ConnectionService: NSObject {
 	internal var session: MCSession!
 	private var isConnected = false
 	private var gameStarted = false
+	private(set) var isStreaming = false
+	internal var outputStream: OutputStream?
+	
+	var err: NSError?
 	
 	//Delegate
 	var roomStateDelegate: RoomStateDelegate?
@@ -37,17 +42,27 @@ class ConnectionService: NSObject {
 	}
 	
 	public func send(node: SCNVector3) {
-		//		NSLog("%@", "to \(session.connectedPeers.count) peers")
+//		//		NSLog("%@", "to \(session.connectedPeers.count) peers")
+//
+//		if session.connectedPeers.count > 0 {
+//			do {
+//				let data  = NSKeyedArchiver.archivedData(withRootObject: node)
+//				try self.session.send(data, toPeers: session.connectedPeers, with: .reliable)
+//			}
+//			catch let error {
+//				NSLog("%@", "Error for sending: \(error)")
+//			}
+//		}
 		
-		if session.connectedPeers.count > 0 {
-			do {
-				let data  = NSKeyedArchiver.archivedData(withRootObject: node)
-				try self.session.send(data, toPeers: session.connectedPeers, with: .reliable)
+		let data = NSKeyedArchiver.archivedData(withRootObject: node)
+		//write in the output stream the bytes array of the NSData
+		if let output = outputStream {
+			let result = data.withUnsafeBytes { dataBytes in
+				output.write(UnsafePointer(dataBytes), maxLength: data.count)
 			}
-			catch let error {
-				NSLog("%@", "Error for sending: \(error)")
-			}
+			
 		}
+		
 	}
 	
 	public func sendStartGameSignal() {
@@ -72,6 +87,22 @@ class ConnectionService: NSObject {
 	
 	public func disconnectFromSession() {
 		self.session.disconnect()
+	}
+	
+	func startGame() {
+		// TODO: start game here
+		do {
+			try self.outputStream = session.startStream(withName: "Game-Stream", toPeer: session.connectedPeers.first!)
+			if let stream = outputStream {
+				stream.delegate = self
+				stream.schedule(in: RunLoop.current, forMode: .default)
+				stream.open()
+				isStreaming = true
+			}
+		} catch  {
+			print(error)
+		}
+		
 	}
 }
 
@@ -114,6 +145,13 @@ extension ConnectionService: MCSessionDelegate {
 	
 	func session(_ session: MCSession, didReceive stream: InputStream, withName streamName: String, fromPeer peerID: MCPeerID) {
 		NSLog("%@", "didReceiveStream")
+		stream.delegate = self
+		stream.schedule(in: RunLoop.current, forMode: .default)
+		stream.open()
+		if !isStreaming {
+			self.startGame()
+		}
+		self.sendStartGameSignal()
 	}
 	
 	func session(_ session: MCSession, didStartReceivingResourceWithName resourceName: String, fromPeer peerID: MCPeerID, with progress: Progress) {
@@ -122,5 +160,31 @@ extension ConnectionService: MCSessionDelegate {
 	
 	func session(_ session: MCSession, didFinishReceivingResourceWithName resourceName: String, fromPeer peerID: MCPeerID, at localURL: URL?, withError error: Error?) {
 		NSLog("%@", "didFinishReceivingResourceWithName")
+	}
+}
+
+
+extension ConnectionService: StreamDelegate {
+	func stream(aStream: Stream, handleEvent eventCode: Stream.Event) {
+		print("RECEIVED: \(eventCode)")
+		switch(eventCode){
+		case Stream.Event.hasBytesAvailable:
+			let input = aStream as! InputStream
+			var buffer = [UInt8](repeating: 0, count: 1024) //allocate a buffer. The size of the buffer will depended on the size of the data you are sending.
+			let numberBytes = input.read(&buffer, maxLength:1024)
+			let dataString = NSData(bytes: &buffer, length: numberBytes)
+			if let receivedNode = NSKeyedUnarchiver.unarchiveObject(with: dataString as Data) as? SCNVector3 {//deserializing the NSData
+				if let delegate = self.gameDataDelegate {
+					delegate.receiveMotion(node: receivedNode)
+				}
+			}
+			
+		//input
+		case Stream.Event.hasSpaceAvailable:
+			break
+		//output
+		default:
+			break
+		}
 	}
 }
